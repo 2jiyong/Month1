@@ -1,7 +1,9 @@
+import java.util.List;
+
 public class PrintCoordinates {
-    public static String printCoordinates(Coordinates coordinates){
+    public static String printCoordinates(List<int[]> coordinateList){
         int[][] position =new int[25][25];
-        for (int[] coordinate :coordinates.getCoordinateList()){
+        for (int[] coordinate :coordinateList){
             //x좌표는 열 y좌표는 행
             position[coordinate[1]][coordinate[0]] = 1;
         }
@@ -28,8 +30,6 @@ public class PrintCoordinates {
             else sb.append("    ");
         }
         sb.append("\n");
-
-        sb.append(Calculate.showResult(coordinates)).append("\n");
         return sb.toString();
     }
 }

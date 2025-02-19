@@ -10,12 +10,9 @@ public class Triangle implements Shape {
         coordinateList.add(coordinate3);
     }
 
-    public void addCoordinate(int x, int y){
-        coordinateList.add(new int[] {x,y});
-    }
-
-    public List<int[]> getCoordinateList(){
-        return coordinateList;
+    @Override
+    public String showResult(){
+        return PrintCoordinates.printCoordinates(coordinateList)+"삼각형 넓이는 "+calculate();
     }
 
     @Override

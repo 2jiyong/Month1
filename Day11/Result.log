@@ -1,0 +1,234 @@
+default	14:22:33.782965+09:00	Airmail	TCP Conn [263:0x60000161fb60] using empty proxy configuration
+default	14:22:33.782965+09:00	Airmail	TCP Conn [264:0x600001604c80] using empty proxy configuration
+default	14:22:33.782970+09:00	Airmail	TCP Conn [265:0x60000160d720] using empty proxy configuration
+default	14:22:33.782978+09:00	Airmail	Stream client bypassing proxies on TCP Conn [263:0x60000161fb60]
+default	14:22:33.783091+09:00	Airmail	Stream client bypassing proxies on TCP Conn [264:0x600001604c80]
+default	14:22:33.783102+09:00	Airmail	TCP Conn 0x60000161fb60 started
+default	14:22:33.783123+09:00	Airmail	Stream client bypassing proxies on TCP Conn [265:0x60000160d720]
+default	14:22:33.783215+09:00	Airmail	TCP Conn 0x60000160d720 started
+default	14:22:33.783219+09:00	Airmail	TCP Conn 0x600001604c80 started
+default	14:22:33.783565+09:00	Airmail	[C263 55E76516-B3B0-44BB-80E4-080B1A4353FC Hostname#9e7acbfe:993 tcp, definite, attribution: developer, context: Default Network Context (private), proc: DA8D10E3-7EAF-3E2C-A3F9-C0B1F9582DE5, no proxy, prohibit fallback, allow socket access] start
+default	14:22:33.783643+09:00	Airmail	[C263 Hostname#9e7acbfe:993 initial parent-flow ((null))] event: path:start @0.000s
+default	14:22:33.783750+09:00	Airmail	[C263 Hostname#9e7acbfe:993 waiting parent-flow (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] event: path:satisfied @0.000s, uuid: 4F477740-E239-4E5D-8490-6027F97D0405
+default	14:22:33.783869+09:00	Airmail	[C263 Hostname#9e7acbfe:993 in_progress parent-flow (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] event: flow:start_connect @0.000s
+default	14:22:33.783880+09:00	Airmail	nw_connection_report_state_with_handler_on_nw_queue [C263] reporting state preparing
+default	14:22:33.783979+09:00	Airmail	[C263 Hostname#9e7acbfe:993 in_progress parent-flow (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] event: flow:start_child @0.000s
+default	14:22:33.784061+09:00	Airmail	[C263.1 Hostname#9e7acbfe:993 initial path ((null))] event: path:start @0.000s
+default	14:22:33.784126+09:00	Airmail	[C263.1 Hostname#9e7acbfe:993 waiting path (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] event: path:satisfied @0.000s, uuid: 4F477740-E239-4E5D-8490-6027F97D0405
+default	14:22:33.784198+09:00	Airmail	[C263.1 Hostname#9e7acbfe:993 in_progress resolver (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] event: resolver:start_dns @0.000s
+default	14:22:33.784315+09:00	Airmail	[C264 1C33C18A-497E-4E31-A5FC-C9016E886395 Hostname#9e7acbfe:993 tcp, definite, attribution: developer, context: Default Network Context (private), proc: DA8D10E3-7EAF-3E2C-A3F9-C0B1F9582DE5, no proxy, prohibit fallback, allow socket access] start
+default	14:22:33.784347+09:00	Airmail	[C264 Hostname#9e7acbfe:993 initial parent-flow ((null))] event: path:start @0.000s
+default	14:22:33.784394+09:00	Airmail	[C264 Hostname#9e7acbfe:993 waiting parent-flow (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] event: path:satisfied @0.000s, uuid: 4F477740-E239-4E5D-8490-6027F97D0405
+default	14:22:33.784559+09:00	Airmail	[C264 Hostname#9e7acbfe:993 in_progress parent-flow (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] event: flow:start_connect @0.000s
+default	14:22:33.784603+09:00	Airmail	nw_connection_report_state_with_handler_on_nw_queue [C264] reporting state preparing
+default	14:22:33.784806+09:00	Airmail	[C264 Hostname#9e7acbfe:993 in_progress parent-flow (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] event: flow:start_child @0.000s
+default	14:22:33.784903+09:00	Airmail	[C264.1 Hostname#9e7acbfe:993 initial path ((null))] event: path:start @0.000s
+default	14:22:33.785053+09:00	Airmail	[C264.1 Hostname#9e7acbfe:993 waiting path (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] event: path:satisfied @0.000s, uuid: 4F477740-E239-4E5D-8490-6027F97D0405
+default	14:22:33.785137+09:00	Airmail	[C264.1 Hostname#9e7acbfe:993 in_progress resolver (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] event: resolver:start_dns @0.000s
+default	14:22:33.785572+09:00	Airmail	[C265 223734D8-76C2-48D7-BB5D-0EFB9CD179E2 Hostname#9e7acbfe:993 tcp, definite, attribution: developer, context: Default Network Context (private), proc: DA8D10E3-7EAF-3E2C-A3F9-C0B1F9582DE5, no proxy, prohibit fallback, allow socket access] start
+default	14:22:33.785619+09:00	Airmail	[C265 Hostname#9e7acbfe:993 initial parent-flow ((null))] event: path:start @0.000s
+default	14:22:33.785717+09:00	Airmail	[C265 Hostname#9e7acbfe:993 waiting parent-flow (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] event: path:satisfied @0.000s, uuid: 4F477740-E239-4E5D-8490-6027F97D0405
+default	14:22:33.785846+09:00	Airmail	[C265 Hostname#9e7acbfe:993 in_progress parent-flow (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] event: flow:start_connect @0.000s
+default	14:22:33.785892+09:00	Airmail	nw_connection_report_state_with_handler_on_nw_queue [C265] reporting state preparing
+default	14:22:33.786041+09:00	Airmail	[C265 Hostname#9e7acbfe:993 in_progress parent-flow (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] event: flow:start_child @0.000s
+default	14:22:33.786133+09:00	Airmail	[C265.1 Hostname#9e7acbfe:993 initial path ((null))] event: path:start @0.000s
+default	14:22:33.786247+09:00	Airmail	[C265.1 Hostname#9e7acbfe:993 waiting path (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] event: path:satisfied @0.000s, uuid: 4F477740-E239-4E5D-8490-6027F97D0405
+default	14:22:33.786346+09:00	Airmail	[C265.1 Hostname#9e7acbfe:993 in_progress resolver (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] event: resolver:start_dns @0.000s
+default	14:22:33.790494+09:00	Airmail	nw_endpoint_resolver_update [C263.1 Hostname#9e7acbfe:993 in_progress resolver (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] Adding endpoint handler for IPv4#8382d712:993
+default	14:22:33.790652+09:00	Airmail	nw_endpoint_resolver_update [C263.1 Hostname#9e7acbfe:993 in_progress resolver (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] Adding endpoint handler for IPv4#395c7635:993
+default	14:22:33.790700+09:00	Airmail	[C263.1 Hostname#9e7acbfe:993 in_progress resolver (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] event: resolver:receive_dns @0.007s
+default	14:22:33.791347+09:00	Airmail	[C263.1.1 IPv4#8382d712:993 initial path ((null))] event: path:start @0.007s
+default	14:22:33.791575+09:00	Airmail	[C263.1.1 IPv4#8382d712:993 waiting path (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] event: path:satisfied @0.007s, uuid: ED3E5259-C1E7-4E80-9C74-66BEF6183583
+default	14:22:33.791726+09:00	Airmail	nw_socket_initialize_socket [C263.1.1:1] Not guarding fd 93
+default	14:22:33.791783+09:00	Airmail	[C263.1.1 IPv4#8382d712:993 in_progress socket-flow (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] event: flow:start_connect @0.008s
+default	14:22:33.791944+09:00	Airmail	nw_endpoint_resolver_update [C264.1 Hostname#9e7acbfe:993 in_progress resolver (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] Adding endpoint handler for IPv4#8382d712:993
+default	14:22:33.791990+09:00	Airmail	nw_endpoint_resolver_update [C264.1 Hostname#9e7acbfe:993 in_progress resolver (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] Adding endpoint handler for IPv4#395c7635:993
+default	14:22:33.792066+09:00	Airmail	[C264.1 Hostname#9e7acbfe:993 in_progress resolver (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] event: resolver:receive_dns @0.007s
+default	14:22:33.792129+09:00	Airmail	nw_endpoint_resolver_update [C265.1 Hostname#9e7acbfe:993 in_progress resolver (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] Adding endpoint handler for IPv4#8382d712:993
+default	14:22:33.792144+09:00	Airmail	nw_endpoint_resolver_update [C265.1 Hostname#9e7acbfe:993 in_progress resolver (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] Adding endpoint handler for IPv4#395c7635:993
+default	14:22:33.792192+09:00	Airmail	[C265.1 Hostname#9e7acbfe:993 in_progress resolver (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] event: resolver:receive_dns @0.006s
+default	14:22:33.792489+09:00	Airmail	[C264.1.1 IPv4#8382d712:993 initial path ((null))] event: path:start @0.008s
+default	14:22:33.792558+09:00	Airmail	[C264.1.1 IPv4#8382d712:993 waiting path (satisfied (Path is satisfied), viable, interface: en1[802.11], ipv4, dns, uses wifi)] event: path:satisfied @0.008s, uuid: ED3E5259-C1E7-4E80-9C74-66BEF6183583
+default	14:22:33.792763+09:00	Airmail	nw_socket_initialize_socket [C264.1.1:1] Not guarding fd 95
+default	14:22:33.792824+09:00	Airmail	[C264.1.1 IPv4#8382d712:993 in_progress socket-flow (satisfied (Path is satisfied), viable, interface: en1[802.11], ipv4, dns, uses wifi)] event: flow:start_connect @0.008s
+default	14:22:33.792983+09:00	Airmail	[C265.1.1 IPv4#8382d712:993 initial path ((null))] event: path:start @0.007s
+default	14:22:33.793128+09:00	Airmail	[C265.1.1 IPv4#8382d712:993 waiting path (satisfied (Path is satisfied), viable, interface: en1[802.11], ipv4, dns, uses wifi)] event: path:satisfied @0.007s, uuid: ED3E5259-C1E7-4E80-9C74-66BEF6183583
+default	14:22:33.793253+09:00	Airmail	nw_socket_initialize_socket [C265.1.1:1] Not guarding fd 97
+default	14:22:33.793327+09:00	Airmail	[C265.1.1 IPv4#8382d712:993 in_progress socket-flow (satisfied (Path is satisfied), viable, interface: en1[802.11], ipv4, dns, uses wifi)] event: flow:start_connect @0.007s
+default	14:22:33.844266+09:00	Airmail	nw_socket_handle_socket_event [C263.1.1:1] Socket received CONNECTED event
+default	14:22:33.844366+09:00	Airmail	nw_flow_connected [C263.1.1 IPv4#8382d712:993 in_progress socket-flow (satisfied (Path is satisfied), viable, interface: en1[802.11], ipv4, dns, uses wifi)] Output protocol connected (socket)
+default	14:22:33.844526+09:00	Airmail	[C263.1.1 IPv4#8382d712:993 ready socket-flow (satisfied (Path is satisfied), viable, interface: en1[802.11], ipv4, dns, uses wifi)] event: flow:child_finish_connect @0.060s
+default	14:22:33.844717+09:00	Airmail	[C263.1 Hostname#9e7acbfe:993 ready resolver (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] event: flow:child_finish_connect @0.061s
+default	14:22:33.844949+09:00	Airmail	[C263.1.1 IPv4#8382d712:993 ready socket-flow (satisfied (Path is satisfied), viable, interface: en1[802.11], ipv4, dns, uses wifi)] event: flow:changed_viability @0.061s
+default	14:22:33.844999+09:00	Airmail	[C263.1 Hostname#9e7acbfe:993 ready resolver (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] event: flow:changed_viability @0.061s
+default	14:22:33.845073+09:00	Airmail	nw_flow_connected [C263 IPv4#8382d712:993 in_progress parent-flow (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] Output protocol connected (endpoint_flow)
+default	14:22:33.845177+09:00	Airmail	[C263 IPv4#8382d712:993 ready parent-flow (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] event: flow:finish_connect @0.061s
+default	14:22:33.845452+09:00	Airmail	nw_connection_report_state_with_handler_on_nw_queue [C263] reporting state ready
+default	14:22:33.845495+09:00	Airmail	[C263 IPv4#8382d712:993 ready parent-flow (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] event: flow:changed_viability @0.061s
+default	14:22:33.845628+09:00	Airmail	TCP Conn 0x60000161fb60 event 1. err: 0
+default	14:22:33.845664+09:00	Airmail	TCP Conn 0x60000161fb60 complete. fd: 100, err: 0
+default	14:22:33.845942+09:00	Airmail	TCP Conn 0x60000161fb60 starting SSL negotiation
+default	14:22:33.865509+09:00	Airmail	nw_socket_handle_socket_event [C265.1.1:1] Socket received CONNECTED event
+default	14:22:33.865611+09:00	Airmail	nw_flow_connected [C265.1.1 IPv4#8382d712:993 in_progress socket-flow (satisfied (Path is satisfied), viable, interface: en1[802.11], ipv4, dns, uses wifi)] Output protocol connected (socket)
+default	14:22:33.865752+09:00	Airmail	[C265.1.1 IPv4#8382d712:993 ready socket-flow (satisfied (Path is satisfied), viable, interface: en1[802.11], ipv4, dns, uses wifi)] event: flow:child_finish_connect @0.080s
+default	14:22:33.865962+09:00	Airmail	[C265.1 Hostname#9e7acbfe:993 ready resolver (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] event: flow:child_finish_connect @0.080s
+default	14:22:33.866250+09:00	Airmail	[C265.1.1 IPv4#8382d712:993 ready socket-flow (satisfied (Path is satisfied), viable, interface: en1[802.11], ipv4, dns, uses wifi)] event: flow:changed_viability @0.080s
+default	14:22:33.866323+09:00	Airmail	[C265.1 Hostname#9e7acbfe:993 ready resolver (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] event: flow:changed_viability @0.080s
+default	14:22:33.866357+09:00	Airmail	nw_flow_connected [C265 IPv4#8382d712:993 in_progress parent-flow (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] Output protocol connected (endpoint_flow)
+default	14:22:33.866508+09:00	Airmail	[C265 IPv4#8382d712:993 ready parent-flow (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] event: flow:finish_connect @0.080s
+default	14:22:33.866703+09:00	Airmail	nw_connection_report_state_with_handler_on_nw_queue [C265] reporting state ready
+default	14:22:33.866766+09:00	Airmail	[C265 IPv4#8382d712:993 ready parent-flow (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] event: flow:changed_viability @0.081s
+default	14:22:33.866842+09:00	Airmail	nw_socket_handle_socket_event [C264.1.1:1] Socket received CONNECTED event
+default	14:22:33.867029+09:00	Airmail	nw_flow_connected [C264.1.1 IPv4#8382d712:993 in_progress socket-flow (satisfied (Path is satisfied), viable, interface: en1[802.11], ipv4, dns, uses wifi)] Output protocol connected (socket)
+default	14:22:33.867157+09:00	Airmail	TCP Conn 0x60000160d720 event 1. err: 0
+default	14:22:33.867352+09:00	Airmail	TCP Conn 0x60000160d720 complete. fd: 106, err: 0
+default	14:22:33.867399+09:00	Airmail	[C264.1.1 IPv4#8382d712:993 ready socket-flow (satisfied (Path is satisfied), viable, interface: en1[802.11], ipv4, dns, uses wifi)] event: flow:child_finish_connect @0.083s
+default	14:22:33.867686+09:00	Airmail	[C264.1 Hostname#9e7acbfe:993 ready resolver (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] event: flow:child_finish_connect @0.083s
+default	14:22:33.867780+09:00	Airmail	[C264.1.1 IPv4#8382d712:993 ready socket-flow (satisfied (Path is satisfied), viable, interface: en1[802.11], ipv4, dns, uses wifi)] event: flow:changed_viability @0.083s
+default	14:22:33.867785+09:00	Airmail	TCP Conn 0x60000160d720 starting SSL negotiation
+default	14:22:33.867862+09:00	Airmail	[C264.1 Hostname#9e7acbfe:993 ready resolver (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] event: flow:changed_viability @0.083s
+default	14:22:33.867916+09:00	Airmail	nw_flow_connected [C264 IPv4#8382d712:993 in_progress parent-flow (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] Output protocol connected (endpoint_flow)
+default	14:22:33.867974+09:00	Airmail	[C264 IPv4#8382d712:993 ready parent-flow (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] event: flow:finish_connect @0.083s
+default	14:22:33.868123+09:00	Airmail	nw_connection_report_state_with_handler_on_nw_queue [C264] reporting state ready
+default	14:22:33.868156+09:00	Airmail	[C264 IPv4#8382d712:993 ready parent-flow (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] event: flow:changed_viability @0.083s
+default	14:22:33.868264+09:00	Airmail	TCP Conn 0x600001604c80 event 1. err: 0
+default	14:22:33.868304+09:00	Airmail	TCP Conn 0x600001604c80 complete. fd: 107, err: 0
+default	14:22:33.868530+09:00	Airmail	TCP Conn 0x600001604c80 starting SSL negotiation
+default	14:22:34.064338+09:00	Airmail	TCP Conn 0x60000161fb60 SSL Handshake DONE
+default	14:22:34.162725+09:00	Airmail	TCP Conn 0x60000160d720 SSL Handshake DONE
+default	14:22:34.163764+09:00	Airmail	TCP Conn 0x600001604c80 SSL Handshake DONE
+default	14:22:36.922120+09:00	Airmail	[0x7fdf9c87c5b0] activating connection: mach=true listener=false peer=false name=com.apple.notificationcenterui.widgetcontent
+default	14:22:36.922310+09:00	Airmail	[0x7fdf9c87c820] activating connection: mach=true listener=false peer=false name=com.apple.notificationcenterui.widgetcontent
+default	14:22:38.410017+09:00	Airmail	[0x7fdf7cb560b0] activating connection: mach=true listener=false peer=false name=com.apple.notificationcenterui.widgetcontent
+default	14:22:38.410223+09:00	Airmail	[0x7fdf7cca3410] activating connection: mach=true listener=false peer=false name=com.apple.notificationcenterui.widgetcontent
+default	14:22:42.983614+09:00	Airmail	[0x7fdf7cbda480] activating connection: mach=true listener=false peer=false name=com.apple.notificationcenterui.widgetcontent
+default	14:22:42.984059+09:00	Airmail	[0x7fdf7cc52b30] activating connection: mach=true listener=false peer=false name=com.apple.notificationcenterui.widgetcontent
+default	14:22:48.101295+09:00	Airmail	TCP Conn 0x60000161fb60 canceled
+default	14:22:48.101340+09:00	Airmail	[C263 55E76516-B3B0-44BB-80E4-080B1A4353FC Hostname#9e7acbfe:993 tcp, legacy-socket, definite, attribution: developer] cancel
+default	14:22:48.101644+09:00	Airmail	nw_flow_disconnected [C263 IPv4#8382d712:993 cancelled parent-flow ((null))] Output protocol disconnected
+default	14:22:48.102121+09:00	Airmail	nw_connection_report_state_with_handler_on_nw_queue [C263] reporting state cancelled
+default	14:22:49.868347+09:00	Airmail	TCP Conn 0x600001604c80 canceled
+default	14:22:49.868385+09:00	Airmail	[C264 1C33C18A-497E-4E31-A5FC-C9016E886395 Hostname#9e7acbfe:993 tcp, legacy-socket, definite, attribution: developer] cancel
+default	14:22:49.868665+09:00	Airmail	nw_flow_disconnected [C264 IPv4#8382d712:993 cancelled parent-flow ((null))] Output protocol disconnected
+default	14:22:49.869340+09:00	Airmail	nw_connection_report_state_with_handler_on_nw_queue [C264] reporting state cancelled
+default	14:22:54.169749+09:00	Airmail	TCP Conn 0x60000160d720 canceled
+default	14:22:54.169832+09:00	Airmail	[C265 223734D8-76C2-48D7-BB5D-0EFB9CD179E2 Hostname#9e7acbfe:993 tcp, legacy-socket, definite, attribution: developer] cancel
+default	14:22:54.170099+09:00	Airmail	nw_flow_disconnected [C265 IPv4#8382d712:993 cancelled parent-flow ((null))] Output protocol disconnected
+default	14:22:54.170547+09:00	Airmail	nw_connection_report_state_with_handler_on_nw_queue [C265] reporting state cancelled
+default	14:23:29.795449+09:00	Airmail	TCP Conn [266:0x600001607660] using empty proxy configuration
+default	14:23:29.795459+09:00	Airmail	TCP Conn [267:0x60000161f520] using empty proxy configuration
+default	14:23:29.795509+09:00	Airmail	Stream client bypassing proxies on TCP Conn [266:0x600001607660]
+default	14:23:29.795511+09:00	Airmail	Stream client bypassing proxies on TCP Conn [267:0x60000161f520]
+default	14:23:29.795526+09:00	Airmail	TCP Conn 0x600001607660 started
+default	14:23:29.795588+09:00	Airmail	TCP Conn 0x60000161f520 started
+default	14:23:29.795918+09:00	Airmail	[C266 07225DFB-EDC6-47D5-BE3B-2F968645EBFA Hostname#9e7acbfe:993 tcp, definite, attribution: developer, context: Default Network Context (private), proc: DA8D10E3-7EAF-3E2C-A3F9-C0B1F9582DE5, no proxy, prohibit fallback, allow socket access] start
+default	14:23:29.796072+09:00	Airmail	[C266 Hostname#9e7acbfe:993 initial parent-flow ((null))] event: path:start @0.000s
+default	14:23:29.796202+09:00	Airmail	[C266 Hostname#9e7acbfe:993 waiting parent-flow (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] event: path:satisfied @0.000s, uuid: 4F477740-E239-4E5D-8490-6027F97D0405
+default	14:23:29.796427+09:00	Airmail	[C266 Hostname#9e7acbfe:993 in_progress parent-flow (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] event: flow:start_connect @0.000s
+default	14:23:29.796474+09:00	Airmail	nw_connection_report_state_with_handler_on_nw_queue [C266] reporting state preparing
+default	14:23:29.796611+09:00	Airmail	[C266 Hostname#9e7acbfe:993 in_progress parent-flow (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] event: flow:start_child @0.000s
+default	14:23:29.796749+09:00	Airmail	[C266.1 Hostname#9e7acbfe:993 initial path ((null))] event: path:start @0.000s
+default	14:23:29.796925+09:00	Airmail	[C266.1 Hostname#9e7acbfe:993 waiting path (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] event: path:satisfied @0.000s, uuid: 4F477740-E239-4E5D-8490-6027F97D0405
+default	14:23:29.797044+09:00	Airmail	[C266.1 Hostname#9e7acbfe:993 in_progress resolver (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] event: resolver:start_dns @0.001s
+default	14:23:29.797173+09:00	Airmail	[C267 8E6E314A-962E-4978-909D-D5D588ADA1C5 Hostname#9e7acbfe:993 tcp, definite, attribution: developer, context: Default Network Context (private), proc: DA8D10E3-7EAF-3E2C-A3F9-C0B1F9582DE5, no proxy, prohibit fallback, allow socket access] start
+default	14:23:29.797228+09:00	Airmail	[C267 Hostname#9e7acbfe:993 initial parent-flow ((null))] event: path:start @0.000s
+default	14:23:29.797317+09:00	Airmail	[C267 Hostname#9e7acbfe:993 waiting parent-flow (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] event: path:satisfied @0.000s, uuid: 4F477740-E239-4E5D-8490-6027F97D0405
+default	14:23:29.797688+09:00	Airmail	[C267 Hostname#9e7acbfe:993 in_progress parent-flow (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] event: flow:start_connect @0.000s
+default	14:23:29.797708+09:00	Airmail	nw_connection_report_state_with_handler_on_nw_queue [C267] reporting state preparing
+default	14:23:29.797856+09:00	Airmail	[C267 Hostname#9e7acbfe:993 in_progress parent-flow (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] event: flow:start_child @0.000s
+default	14:23:29.797935+09:00	Airmail	[C267.1 Hostname#9e7acbfe:993 initial path ((null))] event: path:start @0.000s
+default	14:23:29.798130+09:00	Airmail	[C267.1 Hostname#9e7acbfe:993 waiting path (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] event: path:satisfied @0.000s, uuid: 4F477740-E239-4E5D-8490-6027F97D0405
+default	14:23:29.798208+09:00	Airmail	[C267.1 Hostname#9e7acbfe:993 in_progress resolver (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] event: resolver:start_dns @0.001s
+default	14:23:29.798640+09:00	Airmail	nw_endpoint_resolver_update [C266.1 Hostname#9e7acbfe:993 in_progress resolver (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] Adding endpoint handler for IPv4#8382d712:993
+default	14:23:29.798661+09:00	Airmail	nw_endpoint_resolver_update [C266.1 Hostname#9e7acbfe:993 in_progress resolver (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] Adding endpoint handler for IPv4#395c7635:993
+default	14:23:29.798784+09:00	Airmail	[C266.1 Hostname#9e7acbfe:993 in_progress resolver (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] event: resolver:receive_dns @0.002s
+default	14:23:29.799015+09:00	Airmail	[C266.1.1 IPv4#8382d712:993 initial path ((null))] event: path:start @0.003s
+default	14:23:29.799228+09:00	Airmail	[C266.1.1 IPv4#8382d712:993 waiting path (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] event: path:satisfied @0.003s, uuid: 72690561-5CFE-4E1A-AA56-D03D2DF2DF95
+default	14:23:29.799436+09:00	Airmail	nw_socket_initialize_socket [C266.1.1:1] Not guarding fd 93
+default	14:23:29.799514+09:00	Airmail	[C266.1.1 IPv4#8382d712:993 in_progress socket-flow (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] event: flow:start_connect @0.003s
+default	14:23:29.799916+09:00	Airmail	nw_endpoint_resolver_update [C267.1 Hostname#9e7acbfe:993 in_progress resolver (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] Adding endpoint handler for IPv4#8382d712:993
+default	14:23:29.799932+09:00	Airmail	nw_endpoint_resolver_update [C267.1 Hostname#9e7acbfe:993 in_progress resolver (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] Adding endpoint handler for IPv4#395c7635:993
+default	14:23:29.799968+09:00	Airmail	[C267.1 Hostname#9e7acbfe:993 in_progress resolver (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] event: resolver:receive_dns @0.002s
+default	14:23:29.800071+09:00	Airmail	[C267.1.1 IPv4#8382d712:993 initial path ((null))] event: path:start @0.002s
+default	14:23:29.800185+09:00	Airmail	[C267.1.1 IPv4#8382d712:993 waiting path (satisfied (Path is satisfied), viable, interface: en1[802.11], ipv4, dns, uses wifi)] event: path:satisfied @0.002s, uuid: 72690561-5CFE-4E1A-AA56-D03D2DF2DF95
+default	14:23:29.800354+09:00	Airmail	nw_socket_initialize_socket [C267.1.1:1] Not guarding fd 95
+default	14:23:29.800436+09:00	Airmail	[C267.1.1 IPv4#8382d712:993 in_progress socket-flow (satisfied (Path is satisfied), viable, interface: en1[802.11], ipv4, dns, uses wifi)] event: flow:start_connect @0.003s
+default	14:23:29.878537+09:00	Airmail	nw_socket_handle_socket_event [C266.1.1:1] Socket received CONNECTED event
+default	14:23:29.878619+09:00	Airmail	nw_flow_connected [C266.1.1 IPv4#8382d712:993 in_progress socket-flow (satisfied (Path is satisfied), viable, interface: en1[802.11], ipv4, dns, uses wifi)] Output protocol connected (socket)
+default	14:23:29.878753+09:00	Airmail	[C266.1.1 IPv4#8382d712:993 ready socket-flow (satisfied (Path is satisfied), viable, interface: en1[802.11], ipv4, dns, uses wifi)] event: flow:child_finish_connect @0.082s
+default	14:23:29.878998+09:00	Airmail	[C266.1 Hostname#9e7acbfe:993 ready resolver (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] event: flow:child_finish_connect @0.083s
+default	14:23:29.879162+09:00	Airmail	[C266.1.1 IPv4#8382d712:993 ready socket-flow (satisfied (Path is satisfied), viable, interface: en1[802.11], ipv4, dns, uses wifi)] event: flow:changed_viability @0.083s
+default	14:23:29.879257+09:00	Airmail	[C266.1 Hostname#9e7acbfe:993 ready resolver (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] event: flow:changed_viability @0.083s
+default	14:23:29.879300+09:00	Airmail	nw_flow_connected [C266 IPv4#8382d712:993 in_progress parent-flow (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] Output protocol connected (endpoint_flow)
+default	14:23:29.879448+09:00	Airmail	[C266 IPv4#8382d712:993 ready parent-flow (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] event: flow:finish_connect @0.083s
+default	14:23:29.879641+09:00	Airmail	nw_connection_report_state_with_handler_on_nw_queue [C266] reporting state ready
+default	14:23:29.879687+09:00	Airmail	[C266 IPv4#8382d712:993 ready parent-flow (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] event: flow:changed_viability @0.083s
+default	14:23:29.879848+09:00	Airmail	TCP Conn 0x600001607660 event 1. err: 0
+default	14:23:29.879945+09:00	Airmail	TCP Conn 0x600001607660 complete. fd: 97, err: 0
+default	14:23:29.880295+09:00	Airmail	TCP Conn 0x600001607660 starting SSL negotiation
+default	14:23:29.881855+09:00	Airmail	nw_socket_handle_socket_event [C267.1.1:1] Socket received CONNECTED event
+default	14:23:29.881912+09:00	Airmail	nw_flow_connected [C267.1.1 IPv4#8382d712:993 in_progress socket-flow (satisfied (Path is satisfied), viable, interface: en1[802.11], ipv4, dns, uses wifi)] Output protocol connected (socket)
+default	14:23:29.882004+09:00	Airmail	[C267.1.1 IPv4#8382d712:993 ready socket-flow (satisfied (Path is satisfied), viable, interface: en1[802.11], ipv4, dns, uses wifi)] event: flow:child_finish_connect @0.084s
+default	14:23:29.882164+09:00	Airmail	[C267.1 Hostname#9e7acbfe:993 ready resolver (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] event: flow:child_finish_connect @0.084s
+default	14:23:29.882287+09:00	Airmail	[C267.1.1 IPv4#8382d712:993 ready socket-flow (satisfied (Path is satisfied), viable, interface: en1[802.11], ipv4, dns, uses wifi)] event: flow:changed_viability @0.085s
+default	14:23:29.882314+09:00	Airmail	[C267.1 Hostname#9e7acbfe:993 ready resolver (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] event: flow:changed_viability @0.085s
+default	14:23:29.882348+09:00	Airmail	nw_flow_connected [C267 IPv4#8382d712:993 in_progress parent-flow (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] Output protocol connected (endpoint_flow)
+default	14:23:29.882447+09:00	Airmail	[C267 IPv4#8382d712:993 ready parent-flow (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] event: flow:finish_connect @0.085s
+default	14:23:29.882596+09:00	Airmail	nw_connection_report_state_with_handler_on_nw_queue [C267] reporting state ready
+default	14:23:29.882643+09:00	Airmail	[C267 IPv4#8382d712:993 ready parent-flow (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] event: flow:changed_viability @0.085s
+default	14:23:29.882715+09:00	Airmail	TCP Conn 0x60000161f520 event 1. err: 0
+default	14:23:29.882760+09:00	Airmail	TCP Conn 0x60000161f520 complete. fd: 100, err: 0
+default	14:23:29.882970+09:00	Airmail	TCP Conn 0x60000161f520 starting SSL negotiation
+default	14:23:29.953438+09:00	Airmail	TCP Conn 0x600001607660 SSL Handshake DONE
+default	14:23:29.953860+09:00	Airmail	TCP Conn [268:0x60000161c500] using empty proxy configuration
+default	14:23:29.953880+09:00	Airmail	Stream client bypassing proxies on TCP Conn [268:0x60000161c500]
+default	14:23:29.953896+09:00	Airmail	TCP Conn 0x60000161c500 started
+default	14:23:29.954051+09:00	Airmail	[C268 B0382B05-71A0-4F77-8289-DBB9BAD0BC8A Hostname#9e7acbfe:993 tcp, definite, attribution: developer, context: Default Network Context (private), proc: DA8D10E3-7EAF-3E2C-A3F9-C0B1F9582DE5, no proxy, prohibit fallback, allow socket access] start
+default	14:23:29.954133+09:00	Airmail	[C268 Hostname#9e7acbfe:993 initial parent-flow ((null))] event: path:start @0.000s
+default	14:23:29.954236+09:00	Airmail	[C268 Hostname#9e7acbfe:993 waiting parent-flow (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] event: path:satisfied @0.000s, uuid: 4F477740-E239-4E5D-8490-6027F97D0405
+default	14:23:29.954459+09:00	Airmail	[C268 Hostname#9e7acbfe:993 in_progress parent-flow (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] event: flow:start_connect @0.000s
+default	14:23:29.954500+09:00	Airmail	nw_connection_report_state_with_handler_on_nw_queue [C268] reporting state preparing
+default	14:23:29.954672+09:00	Airmail	[C268 Hostname#9e7acbfe:993 in_progress parent-flow (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] event: flow:start_child @0.000s
+default	14:23:29.954768+09:00	Airmail	[C268.1 Hostname#9e7acbfe:993 initial path ((null))] event: path:start @0.000s
+default	14:23:29.954988+09:00	Airmail	[C268.1 Hostname#9e7acbfe:993 waiting path (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] event: path:satisfied @0.000s, uuid: 4F477740-E239-4E5D-8490-6027F97D0405
+default	14:23:29.955101+09:00	Airmail	[C268.1 Hostname#9e7acbfe:993 in_progress resolver (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] event: resolver:start_dns @0.001s
+default	14:23:29.955259+09:00	Airmail	nw_endpoint_resolver_update [C268.1 Hostname#9e7acbfe:993 in_progress resolver (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] Adding endpoint handler for IPv4#8382d712:993
+default	14:23:29.955292+09:00	Airmail	nw_endpoint_resolver_update [C268.1 Hostname#9e7acbfe:993 in_progress resolver (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] Adding endpoint handler for IPv4#395c7635:993
+default	14:23:29.955435+09:00	Airmail	[C268.1 Hostname#9e7acbfe:993 in_progress resolver (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] event: resolver:receive_dns @0.001s
+default	14:23:29.955586+09:00	Airmail	[C268.1.1 IPv4#8382d712:993 initial path ((null))] event: path:start @0.001s
+default	14:23:29.955750+09:00	Airmail	[C268.1.1 IPv4#8382d712:993 waiting path (satisfied (Path is satisfied), viable, interface: en1[802.11], ipv4, dns, uses wifi)] event: path:satisfied @0.001s, uuid: 72690561-5CFE-4E1A-AA56-D03D2DF2DF95
+default	14:23:29.955976+09:00	Airmail	nw_socket_initialize_socket [C268.1.1:1] Not guarding fd 106
+default	14:23:29.956089+09:00	Airmail	[C268.1.1 IPv4#8382d712:993 in_progress socket-flow (satisfied (Path is satisfied), viable, interface: en1[802.11], ipv4, dns, uses wifi)] event: flow:start_connect @0.001s
+default	14:23:29.959908+09:00	Airmail	TCP Conn 0x60000161f520 SSL Handshake DONE
+default	14:23:30.030720+09:00	Airmail	nw_socket_handle_socket_event [C268.1.1:1] Socket received CONNECTED event
+default	14:23:30.030791+09:00	Airmail	nw_flow_connected [C268.1.1 IPv4#8382d712:993 in_progress socket-flow (satisfied (Path is satisfied), viable, interface: en1[802.11], ipv4, dns, uses wifi)] Output protocol connected (socket)
+default	14:23:30.030895+09:00	Airmail	[C268.1.1 IPv4#8382d712:993 ready socket-flow (satisfied (Path is satisfied), viable, interface: en1[802.11], ipv4, dns, uses wifi)] event: flow:child_finish_connect @0.076s
+default	14:23:30.031033+09:00	Airmail	[C268.1 Hostname#9e7acbfe:993 ready resolver (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] event: flow:child_finish_connect @0.076s
+default	14:23:30.031197+09:00	Airmail	[C268.1.1 IPv4#8382d712:993 ready socket-flow (satisfied (Path is satisfied), viable, interface: en1[802.11], ipv4, dns, uses wifi)] event: flow:changed_viability @0.077s
+default	14:23:30.031277+09:00	Airmail	[C268.1 Hostname#9e7acbfe:993 ready resolver (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] event: flow:changed_viability @0.077s
+default	14:23:30.031313+09:00	Airmail	nw_flow_connected [C268 IPv4#8382d712:993 in_progress parent-flow (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] Output protocol connected (endpoint_flow)
+default	14:23:30.031371+09:00	Airmail	[C268 IPv4#8382d712:993 ready parent-flow (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] event: flow:finish_connect @0.077s
+default	14:23:30.031536+09:00	Airmail	nw_connection_report_state_with_handler_on_nw_queue [C268] reporting state ready
+default	14:23:30.031567+09:00	Airmail	[C268 IPv4#8382d712:993 ready parent-flow (satisfied (Path is satisfied), interface: en1[802.11], ipv4, dns, uses wifi)] event: flow:changed_viability @0.077s
+default	14:23:30.031661+09:00	Airmail	TCP Conn 0x60000161c500 event 1. err: 0
+default	14:23:30.031729+09:00	Airmail	TCP Conn 0x60000161c500 complete. fd: 107, err: 0
+default	14:23:30.031985+09:00	Airmail	TCP Conn 0x60000161c500 starting SSL negotiation
+default	14:23:30.104027+09:00	Airmail	TCP Conn 0x60000161c500 SSL Handshake DONE
+default	14:23:33.208532+09:00	Airmail	[0x7fdf7ce3c040] activating connection: mach=true listener=false peer=false name=com.apple.notificationcenterui.widgetcontent
+default	14:23:33.208734+09:00	Airmail	[0x7fdf7f059720] activating connection: mach=true listener=false peer=false name=com.apple.notificationcenterui.widgetcontent
+default	14:23:34.934478+09:00	Airmail	[0x7fdf7cbf5220] activating connection: mach=true listener=false peer=false name=com.apple.notificationcenterui.widgetcontent
+default	14:23:34.934961+09:00	Airmail	[0x7fdf7cfffda0] activating connection: mach=true listener=false peer=false name=com.apple.notificationcenterui.widgetcontent
+default	14:23:39.271998+09:00	Airmail	[0x7fdeec1a9590] activating connection: mach=true listener=false peer=false name=com.apple.notificationcenterui.widgetcontent
+default	14:23:39.272377+09:00	Airmail	[0x7fdf7f059840] activating connection: mach=true listener=false peer=false name=com.apple.notificationcenterui.widgetcontent
+default	14:23:41.388120+09:00	Airmail	TCP Conn 0x600001607660 canceled
+default	14:23:41.388163+09:00	Airmail	[C266 07225DFB-EDC6-47D5-BE3B-2F968645EBFA Hostname#9e7acbfe:993 tcp, legacy-socket, definite, attribution: developer] cancel
+default	14:23:41.388350+09:00	Airmail	nw_flow_disconnected [C266 IPv4#8382d712:993 cancelled parent-flow ((null))] Output protocol disconnected
+default	14:23:41.388712+09:00	Airmail	nw_connection_report_state_with_handler_on_nw_queue [C266] reporting state cancelled
+default	14:23:45.051295+09:00	Airmail	TCP Conn 0x60000161f520 canceled
+default	14:23:45.051403+09:00	Airmail	[C267 8E6E314A-962E-4978-909D-D5D588ADA1C5 Hostname#9e7acbfe:993 tcp, legacy-socket, definite, attribution: developer] cancel
+default	14:23:45.051664+09:00	Airmail	nw_flow_disconnected [C267 IPv4#8382d712:993 cancelled parent-flow ((null))] Output protocol disconnected
+default	14:23:45.052122+09:00	Airmail	nw_connection_report_state_with_handler_on_nw_queue [C267] reporting state cancelled
+default	14:23:47.388906+09:00	Airmail	TCP Conn 0x60000161c500 canceled
+default	14:23:47.388961+09:00	Airmail	[C268 B0382B05-71A0-4F77-8289-DBB9BAD0BC8A Hostname#9e7acbfe:993 tcp, legacy-socket, definite, attribution: developer] cancel
+default	14:23:47.389170+09:00	Airmail	nw_flow_disconnected [C268 IPv4#8382d712:993 cancelled parent-flow ((null))] Output protocol disconnected
+default	14:23:47.389415+09:00	Airmail	nw_connection_report_state_with_handler_on_nw_queue [C268] reporting state cancelled

@@ -2,7 +2,7 @@ import java.util.*;
 
 // 블록의 시작은 메타데이터로 시작
 public class Heap {
-    private int base;
+    private final int base;
     private int[] memory;
     private final int META_DATA_SIZE = 8;
     private final int TYPE_SIZE = 8;
@@ -11,11 +11,18 @@ public class Heap {
     private final Map<String,Integer> typeSizeMap = new HashMap<>();
     private final Map<String,Integer> typeIdMap = new HashMap<>();
 
+    public Heap(){
+        base = 0 ;
+    }
+
+    public Heap(int base){
+        this.base = base;
+    }
+
     public int init(int heapSize){
         memory = new int[heapSize];
         createMetaData(0,heapSize-META_DATA_SIZE,false,"");
-        base = 0;
-        return 0x0000 ;
+        return base ;
     }
 
     public void setSize(String type,int length){
@@ -99,17 +106,27 @@ public class Heap {
         while(offset< memory.length){
             int blockSize = memory[offset];
             int isAllocated = memory[offset+1];
-            if (isAllocated == 1){
-                sb.append(blockInfo(offset));
-            }
+            sb.append(blockInfo(offset,isAllocated));
             offset += blockSize + META_DATA_SIZE;
         }
         return sb.toString();
     }
 
-    private String blockInfo(int pointer){
+    private String blockInfo(int pointer, int isAllocated){
         StringBuilder sb = new StringBuilder();
         int size = memory[pointer];
+        sb.append("포인터 주소값 : ");
+        sb.append("0x").append(String.format("%X",base)).append(" + ").append("0x").append(String.format("%X",pointer));
+        sb.append(" (0x").append(String.format("%X",base+pointer)).append("), ");
+        sb.append("크기 : ").append(size).append(", ");
+        sb.append("할당 여부 : ");
+        if (isAllocated == 0){
+            sb.append("false\n");
+            return sb.toString();
+        } else{
+            sb.append("true, ");
+        }
+
         String type = null;
         for (Map.Entry<String,Integer> entry : typeIdMap.entrySet()){
             if(entry.getValue() == memory[pointer+2]){
@@ -118,13 +135,7 @@ public class Heap {
             }
         }
         if (type == null) throw new IllegalArgumentException("불가능한 type 입니다.");
-
-        sb.append("포인터 주소값은 ");
-        sb.append(base).append("+").append(pointer);
-        sb.append("입니다.");
-        sb.append("타입은 ").append(type).append("이고, ");
-        sb.append("크기는 ").append(size).append("입니다.\n");
-
+        sb.append("타입 : ").append(type).append("\n");
         return sb.toString();
     }
 

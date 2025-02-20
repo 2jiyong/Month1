@@ -100,7 +100,7 @@ public class Heap {
             int blockSize = memory[offset];
             int isAllocated = memory[offset+1];
             if (isAllocated == 1){
-
+                sb.append(blockInfo(offset));
             }
             offset += blockSize + META_DATA_SIZE;
         }

@@ -7,10 +7,12 @@ public class HeapTest {
         memory.setSize("string", 16);
         int arrayPointer = memory.malloc("int", 4);
         int shortPointer = memory.malloc("short", 5);
-
-        System.out.println(arrayPointer);
-        System.out.println(shortPointer);
-        System.out.println(base);
+        System.out.print(memory.heapdump());
+        int string1 = memory.malloc("string", 1);
+        int string2 = memory.malloc("string", 2);
+        memory.free(string1);
+        System.out.print(memory.heapdump());
+        memory.free(string2);
 
 //        base = memory.init(1024);
 //        memory.setSize("short", 4);

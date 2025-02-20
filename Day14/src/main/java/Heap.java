@@ -7,6 +7,7 @@ import java.util.Set;
 public class Heap {
     private int[] memory;
     private final int META_DATA_SIZE = 8;
+    private final int TYPE_SIZE = 8;
     private int typeIdNumber = 1;
     // 타입마다 사이즈가 얼마인지 알려주는 맵
     private final Map<String,Integer> typeSizeMap = new HashMap<>();
@@ -15,6 +16,7 @@ public class Heap {
 
     public int init(int heapSize){
         memory = new int[heapSize];
+        createMetaData(0,heapSize-META_DATA_SIZE,false,"");
         return 0x0000 ;
     }
 
@@ -29,7 +31,7 @@ public class Heap {
     }
 
     public int malloc(String type, int count){
-        int size = typeSizeMap.get(type)*count;
+        int size = typeSizeMap.get(type)>=TYPE_SIZE ? typeSizeMap.get(type)*count: TYPE_SIZE*count;
         int offset = findFreeBlock(size);
         if (offset == -1) throw new IllegalArgumentException("할당 가능한 메모리가 없습니다.");
         // 원래 블록의 사이즈
@@ -43,7 +45,7 @@ public class Heap {
         }
         // 데이터 끝에 원래 메타데이터가 있었다면 그대로 놔두고, 그렇지 않다면 새로운 메타데이터 생성
         if(originBlockSize !=size){
-            createMetaData(offset+size,originBlockSize - size - META_DATA_SIZE,false,"");
+            createMetaData(offset+size+META_DATA_SIZE,originBlockSize - size - META_DATA_SIZE,false,"");
         }
 
         return offset;
@@ -59,10 +61,10 @@ public class Heap {
     //size는 메타데이터를 제외한 사이즈
     private int findFreeBlock(int size){
         int offset = 0 ;
-        while(offset< META_DATA_SIZE){
+        while(offset< memory.length){
             int blockSize = memory[offset];
             int isAllocated = memory[offset+1];
-            if (isAllocated == 1 && blockSize>=size){
+            if (isAllocated == 0 && blockSize>=size){
                 return offset;
             }
             offset += blockSize + META_DATA_SIZE;

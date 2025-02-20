@@ -89,6 +89,7 @@ public class Heap {
     }
 
     // free를 할 때 그 다음 메타데이터가 allocated 되지 않았다면, 하나로 합쳐줘야함.
+    // 그 전 메타데이터가 false여도 하나로 합쳐줘야 하는데
     public void free(int pointer){
         //isAllocated를 false로 변경
         memory[pointer+1] = 0;
@@ -109,6 +110,7 @@ public class Heap {
             sb.append(blockInfo(offset,isAllocated));
             offset += blockSize + META_DATA_SIZE;
         }
+        sb.append("----------------------\n");
         return sb.toString();
     }
 

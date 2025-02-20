@@ -1,6 +1,11 @@
+import java.util.Random;
 public class HeapTest {
     public static void main(String[] args) {
-        Heap memory = new Heap(0x98A2);
+        Random random = new Random();
+        int randomNumber = random.nextInt(0xA000);
+
+        Heap memory = new Heap(randomNumber);
+
         int base = memory.init(1024);
         memory.setSize("short", 4);
         memory.setSize("int", 8);
@@ -11,9 +16,10 @@ public class HeapTest {
         int string1 = memory.malloc("string", 1);
         int string2 = memory.malloc("string", 2);
         memory.free(string1);
-        System.out.println("  ");
         System.out.print(memory.heapdump());
         memory.free(string2);
+        System.out.print(memory.heapdump());
+
 
 //        base = memory.init(1024);
 //        memory.setSize("short", 4);

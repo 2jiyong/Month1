@@ -10,6 +10,7 @@ public class HeapTest {
 
         System.out.println(arrayPointer);
         System.out.println(shortPointer);
+        System.out.println(base);
 
 //        base = memory.init(1024);
 //        memory.setSize("short", 4);

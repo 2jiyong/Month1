@@ -1,10 +1,8 @@
-import java.lang.reflect.Member;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
+// 블록의 시작은 메타데이터로 시작
 public class Heap {
+    private int base;
     private int[] memory;
     private final int META_DATA_SIZE = 8;
     private final int TYPE_SIZE = 8;
@@ -13,10 +11,10 @@ public class Heap {
     private final Map<String,Integer> typeSizeMap = new HashMap<>();
     private final Map<String,Integer> typeIdMap = new HashMap<>();
 
-
     public int init(int heapSize){
         memory = new int[heapSize];
         createMetaData(0,heapSize-META_DATA_SIZE,false,"");
+        base = 0;
         return 0x0000 ;
     }
 
@@ -57,8 +55,10 @@ public class Heap {
             memory[offset+i] = typeIdMap.get(type);
         }
     }
-
-    //size는 메타데이터를 제외한 사이즈
+    // 데이터가 들어갈 수 있는 블록을 찾는 메서드
+    // 메모리의 맨 앞부터 시작해 메타데이터를 읽어나가며 선택된 메타데이터에 입력할 수 있는지 확인하고,
+    // 가능하면 그 주소값을 반환함.
+    // size는 메타데이터를 제외한 size
     private int findFreeBlock(int size){
         int offset = 0 ;
         while(offset< memory.length){
@@ -81,9 +81,76 @@ public class Heap {
         // 나머지 5칸은 padding (무시)
     }
 
-    // 데이터가 들어갈 수 있는 블록을 찾는 메서드
-    // 메모리의 맨 앞부터 시작해 메타데이터를 읽어나가며 선택된 메타데이터에 입력할 수 있는지 확인하고,
-    // 가능하면 그 주소값을 반환함.
-    // size는 메타데이터를 제외한 size
+    // free를 할 때 그 다음 메타데이터가 allocated 되지 않았다면, 하나로 합쳐줘야함.
+    public void free(int pointer){
+        //isAllocated를 false로 변경
+        memory[pointer+1] = 0;
+        int size = memory[pointer];
+        int nextBlockStart = pointer + size + META_DATA_SIZE;
+        // 만약 다음 블록이 사용중이지 않다면 하나의 블록으로 합쳐줌
+        if (memory[nextBlockStart+1] == 0 ){
+            memory[pointer] = size + memory[nextBlockStart] + META_DATA_SIZE;
+        }
+    }
+
+    public String heapdump(){
+        int offset = 0 ;
+        StringBuilder sb = new StringBuilder();
+        while(offset< memory.length){
+            int blockSize = memory[offset];
+            int isAllocated = memory[offset+1];
+            if (isAllocated == 1){
+
+            }
+            offset += blockSize + META_DATA_SIZE;
+        }
+        return sb.toString();
+    }
+
+    private String blockInfo(int pointer){
+        StringBuilder sb = new StringBuilder();
+        int size = memory[pointer];
+        String type = null;
+        for (Map.Entry<String,Integer> entry : typeIdMap.entrySet()){
+            if(entry.getValue() == memory[pointer+2]){
+                type = entry.getKey();
+                break;
+            }
+        }
+        if (type == null) throw new IllegalArgumentException("불가능한 type 입니다.");
+
+        sb.append("포인터 주소값은 ");
+        sb.append(base).append("+").append(pointer);
+        sb.append("입니다.");
+        sb.append("타입은 ").append(type).append("이고, ");
+        sb.append("크기는 ").append(size).append("입니다.\n");
+
+        return sb.toString();
+    }
+
+    // 사용 주인 블록의 용량과 그렇지 않은 블록의 용량
+    public int[] usage(){
+        int[] usageArray = new int[3];
+        usageArray[0] = memory.length;
+        usageArray[1] = findUsingCapacity();
+        usageArray[2] = memory.length - usageArray[1];
+        return usageArray;
+    }
+
+    public int findUsingCapacity(){
+        int offset = 0 ;
+        int usingCapacity = 0 ;
+        while(offset< memory.length){
+            int blockSize = memory[offset];
+            int isAllocated = memory[offset+1];
+            if (isAllocated == 1){
+                usingCapacity+=blockSize+META_DATA_SIZE;
+            }
+            offset += blockSize + META_DATA_SIZE;
+        }
+        return usingCapacity;
+    }
+
+
 
 }

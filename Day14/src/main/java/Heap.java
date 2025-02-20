@@ -32,12 +32,30 @@ public class Heap {
         int size = typeSizeMap.get(type)*count;
         int offset = findFreeBlock(size);
         if (offset == -1) throw new IllegalArgumentException("할당 가능한 메모리가 없습니다.");
+        // 원래 블록의 사이즈
+        int originBlockSize = memory[offset];
         // freeBlock을 찾고, 그 부분에 새로운 메타데이터 및 데이터 생성
-
+        createMetaData(offset, size,true,type);
+        int dataStartIdx = offset+META_DATA_SIZE;
+        for(int i = 0 ; i < count; i++){
+            allocateOneByteAtOffset(dataStartIdx,type);
+            dataStartIdx+=8;
+        }
         // 데이터 끝에 원래 메타데이터가 있었다면 그대로 놔두고, 그렇지 않다면 새로운 메타데이터 생성
+        if(originBlockSize !=size){
+            createMetaData(offset+size,originBlockSize - size - META_DATA_SIZE,false,"");
+        }
 
         return offset;
     }
+
+    private void allocateOneByteAtOffset(int offset, String type){
+        for(int i = 0 ; i<typeSizeMap.get(type); i++){
+            if (i==8) break;
+            memory[offset+i] = typeIdMap.get(type);
+        }
+    }
+
     //size는 메타데이터를 제외한 사이즈
     private int findFreeBlock(int size){
         int offset = 0 ;
@@ -51,13 +69,13 @@ public class Heap {
         }
         return -1;
     }
-
+    // size는 항상 데이터만의 size
     private void createMetaData(int startAddress, int size, boolean isAllocated,String type){
         memory[startAddress] = size;
         // isAllocated - true: 1 , false : 0
         memory[startAddress+1] = isAllocated ? 1 : 0 ;
         // type은 map에 맞춰서
-        memory[startAddress+2] = typeIdMap.get(type);
+        if (isAllocated) memory[startAddress+2] = typeIdMap.get(type);
         // 나머지 5칸은 padding (무시)
     }
 

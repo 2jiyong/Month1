@@ -13,7 +13,7 @@ public class ClassifierAlpha {
                     .filter(pod -> number % pod == 0)
                     .flatMap(pod -> IntStream.of(pod,number/pod))
                     .distinct()
-                    .sum();
+                    .sum(); 
 
     public boolean isPerfect() {
         return factor.apply(number)-number == number;

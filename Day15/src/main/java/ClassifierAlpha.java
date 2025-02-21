@@ -1,6 +1,4 @@
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
+import java.util.stream.IntStream;
 
 public class ClassifierAlpha {
     private int number;
@@ -9,40 +7,24 @@ public class ClassifierAlpha {
         this.number = number;
     }
 
-    public boolean isFactor(int potentialFactor) {
-        return number % potentialFactor == 0;
-    }
-
-    public Set<Integer> factors() {
-        HashSet<Integer> factors = new HashSet<>();
-        for (int pod=1; pod <= Math.sqrt(number); pod++) {
-            if (isFactor(pod)) {
-                factors.add(pod);
-                factors.add(number / pod);
-            }
+    public int sumFactors(int number) {
+        return IntStream.rangeClosed(1, (int) Math.ceil(Math.sqrt(number))) // 1부터 sqrt(number)까지 반복
+                .filter(i -> number % i == 0) // 약수인지 판별
+                .flatMap(i -> IntStream.of(i, number / i)) // i와 number / i 추가
+                .distinct() // 중복 제거
+                .sum(); // 총합 계산
         }
-        return factors;
-    }
-
-    static public int sum(Set<Integer> factors) {
-        Iterator iterator = factors.iterator();
-        int sum = 0;
-        while (iterator.hasNext()) {
-            sum += (Integer) iterator.next();
-        }
-        return sum;
-    }
 
     public boolean isPerfect() {
-        return sum(factors()) - number == number;
+        return sumFactors(number) - number == number;
     }
 
     public boolean isAbundant() {
-        return sum(factors()) - number > number;
+        return sumFactors(number) - number > number;
     }
 
     public boolean isDeficient() {
-        return sum(factors()) - number < number;
+        return sumFactors(number) - number < number;
     }
 
     public static void main(String[] args) {

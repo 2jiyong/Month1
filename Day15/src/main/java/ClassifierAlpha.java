@@ -44,6 +44,7 @@ public class ClassifierAlpha {
     public boolean isDeficient() {
         return sum(factors()) - number < number;
     }
+
     public static void main(String[] args) {
         ClassifierAlpha alpha1 = new ClassifierAlpha(10);
         ClassifierAlpha alpha2 = new ClassifierAlpha(6);

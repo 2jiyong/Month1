@@ -1,30 +1,35 @@
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
+import java.util.function.*;
 import java.util.stream.IntStream;
 
 public class ClassifierAlpha {
-    private int number;
+    private final int number;
 
     public ClassifierAlpha(int number) {
         this.number = number;
     }
 
-    public int sumFactors(int number) {
-        return IntStream.rangeClosed(1, (int) Math.ceil(Math.sqrt(number))) // 1부터 sqrt(number)까지 반복
-                .filter(i -> number % i == 0) // 약수인지 판별
-                .flatMap(i -> IntStream.of(i, number / i)) // i와 number / i 추가
-                .distinct() // 중복 제거
-                .sum(); // 총합 계산
-        }
+    private final Function<Integer, Integer> factor =
+            number -> IntStream.range(1,(int)Math.ceil(Math.sqrt(number)))
+                    .filter(pod -> number % pod == 0)
+                    .flatMap(pod -> IntStream.of(pod,number/pod))
+                    .distinct()
+                    .sum();
+
+    private final BiPredicate<Integer,BiPredicate<Integer,Integer>> tester =
+            (number, predicate) ->
+            {return predicate.test(factor.apply(number)-number,number);};
 
     public boolean isPerfect() {
-        return sumFactors(number) - number == number;
+        return tester.test(number,(sum,number)-> sum == number);
     }
-
     public boolean isAbundant() {
-        return sumFactors(number) - number > number;
+        return tester.test(number,(sum,number)-> sum > number);
     }
-
     public boolean isDeficient() {
-        return sumFactors(number) - number < number;
+        return tester.test(number,(sum,number)-> sum < number);
     }
 
     public static void main(String[] args) {

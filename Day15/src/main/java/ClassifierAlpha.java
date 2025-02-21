@@ -1,6 +1,3 @@
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
 import java.util.function.*;
 import java.util.stream.IntStream;
 
@@ -18,18 +15,14 @@ public class ClassifierAlpha {
                     .distinct()
                     .sum();
 
-    private final BiPredicate<Integer,BiPredicate<Integer,Integer>> tester =
-            (number, predicate) ->
-            {return predicate.test(factor.apply(number)-number,number);};
-
     public boolean isPerfect() {
-        return tester.test(number,(sum,number)-> sum == number);
+        return factor.apply(number)-number == number;
     }
     public boolean isAbundant() {
-        return tester.test(number,(sum,number)-> sum > number);
+        return factor.apply(number)-number > number;
     }
     public boolean isDeficient() {
-        return tester.test(number,(sum,number)-> sum < number);
+        return factor.apply(number)-number < number;
     }
 
     public static void main(String[] args) {

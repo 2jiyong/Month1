@@ -6,14 +6,14 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class PrimeAlpha {
-    private final Function<Integer, Set<Integer>> factors =
-            number -> IntStream.range(1,(int)Math.ceil(Math.sqrt(number)))
+    private static final Function<Integer, Set<Integer>> factors =
+            number -> IntStream.rangeClosed(1,(int)Math.ceil(Math.sqrt(number)))
                     .filter(pod -> number % pod == 0)
                     .flatMap(pod -> IntStream.of(pod,number/pod))
                     .boxed()
                     .collect(Collectors.toSet());
 
-    public Predicate<Integer> isPrime = number -> {
+    public static Predicate<Integer> isPrime = number -> {
         Set<Integer> primeSet = new HashSet<Integer>(){ {add(1); add(number);} };
         return number > 1 && factors.apply(number).equals(primeSet);
     };

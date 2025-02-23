@@ -3,23 +3,27 @@ import java.util.stream.IntStream;
 
 public class ClassifierAlpha {
 
-    private final Function<Integer, Integer> factors =
+    private static final Function<Integer, Integer> factors =
             number -> IntStream.range(1,(int)Math.ceil(Math.sqrt(number)))
                     .filter(pod -> number % pod == 0)
                     .flatMap(pod -> IntStream.of(pod,number/pod))
                     .distinct()
                     .sum();
 
-    public final Predicate<Integer> isPerfect = number ->
+    public static final Predicate<Integer> isPerfect = number ->
             factors.apply(number)-number == number;
     ;
 
-    public final Predicate<Integer> isAbundant = number ->
+    public static final Predicate<Integer> isAbundant = number ->
             factors.apply(number)-number > number;
 
 
-    public final Predicate<Integer> isDeficient = number ->
+    public static final Predicate<Integer> isDeficient = number ->
             factors.apply(number)-number < number;
+
+    public static final Predicate<Integer> isSquared = number ->
+            Math.sqrt(number) % 1 == 0;
+
 
 
 

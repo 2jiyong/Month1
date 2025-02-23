@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/Day10" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/Day10" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/Day11" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/Day11" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/Day12" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/Day12" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/Day13" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/Day13" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/Day3" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/Day3" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/Day8" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/Day8" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

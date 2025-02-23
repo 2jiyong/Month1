@@ -1,39 +1,29 @@
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Set;
+import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class PrimeAlpha {
-    private int number;
+    private final Function<Integer, Set<Integer>> factors =
+            number -> IntStream.range(1,(int)Math.ceil(Math.sqrt(number)))
+                    .filter(pod -> number % pod == 0)
+                    .flatMap(pod -> IntStream.of(pod,number/pod))
+                    .boxed()
+                    .collect(Collectors.toSet());
 
-    public PrimeAlpha(int number) {
-        this.number = number;
-    }
-
-    public boolean isPrime() {
+    public Predicate<Integer> isPrime = number -> {
         Set<Integer> primeSet = new HashSet<Integer>(){ {add(1); add(number);} };
-        return number > 1 && factors().equals(primeSet);
-    }
+        return number > 1 && factors.apply(number).equals(primeSet);
+    };
 
-    public boolean isFactor(int potentialFactor) {
-        return number % potentialFactor == 0;
-    }
-
-    public Set<Integer> factors() {
-        HashSet<Integer> factors = new HashSet<>();
-        for (int pod=1; pod <= Math.sqrt(number); pod++) {
-            if (isFactor(pod)) {
-                factors.add(pod);
-                factors.add(number / pod);
-            }
-        }
-        return factors;
-    }
 
     public static void main(String[] args) {
-        PrimeAlpha prime1 = new PrimeAlpha(10);
-        PrimeAlpha prime2 = new PrimeAlpha(7);
+        PrimeAlpha prime1 = new PrimeAlpha();
+        PrimeAlpha prime2 = new PrimeAlpha();
 
-        System.out.println(prime1.isPrime());
-        System.out.println(prime2.isPrime());
+        System.out.println(prime1.isPrime.test(10));
+        System.out.println(prime2.isPrime.test(7));
     }
 }

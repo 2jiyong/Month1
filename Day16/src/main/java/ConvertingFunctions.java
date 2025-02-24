@@ -60,7 +60,25 @@ public class ConvertingFunctions {
         return convertArrayToInt(reversed);
     }
 
+    public static int convertStartToInt(int[][] array){
+        int[][] reversed = new int[2][2];
+        // 첫 번째 행: 두 번째 행의 오른쪽 부분(7,8)과 첫 번째 행의 왼쪽 부분(1,2)을 역순으로 결합
+        reversed[0][0] = array[1][1]; // 8
+        reversed[0][1] = array[1][0]; // 7
+        reversed[1][0] = array[0][1]; // 2
+        reversed[1][1] = array[0][0]; // 1
+        return convertArrayToInt(reversed);
+    }
 
+    public static int convertEndToInt(int[][] array){
+        int[][] reversed = new int[2][2];
+        // 첫 번째 행: 두 번째 행의 오른쪽 부분(7,8)과 첫 번째 행의 왼쪽 부분(1,2)을 역순으로 결합
+        reversed[0][0] = array[0][1]; // 8
+        reversed[0][1] = array[0][0]; // 7
+        reversed[1][0] = array[1][1]; // 2
+        reversed[1][1] = array[1][0]; // 1
+        return convertArrayToInt(reversed);
+    }
 
     private static int convertArrayToInt(int[][] array){
         StringBuilder sb = new StringBuilder();

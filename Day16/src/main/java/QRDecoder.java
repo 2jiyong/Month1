@@ -96,15 +96,38 @@ public class QRDecoder {
         return parseMap.get(ConvertingFunctions.convertCWToInt(dataBlock.readQRArray()));
     };
 
+    public Function<DataBlock,Integer> lengthFunction = dataBlock -> {
+        //위치 옮기고
+        dataBlock.moveStartCoordinate(-4,0);
+        dataBlock.moveEndCoordinate(-2,0);
+        // 배열을 변환하고, 값을 읽어 String으로 변환
+        return ConvertingFunctions.convertUpToInt(dataBlock.readQRArray());
+    };
+
     private List<Function<DataBlock,String>> decodeStep = new ArrayList<>(List.of(upFunction,CCWFunction,downAfterCCWFunction,downFunction,CWFunction,
             upAfterCWFunction,upFunction,CCWFunction,downAfterCCWFunction,downFunction,CWFunction,upAfterCWFunction,upFunction,upFunction,
             upSpaceFunction,CCWFunction,downAfterCCWFunction,downSpaceFunction,downFunction,downFunction));
 
+
+
     public void decode() {
-        DataBlock dataBlock = new DataBlock(new int[]{15, 19}, new int[]{18, 20});
+        DataBlock dataBlock = new DataBlock(new int[]{19, 19}, new int[]{20, 20});
+        int start = ConvertingFunctions.convertStartToInt(dataBlock.readQRArray());
 
-        decodeStep.stream().map(step->step.apply(dataBlock))
-                .forEach(System.out::println);
+        DataBlock endDataBlock = new DataBlock(new int[]{19,9},new int[]{20,10});
+        int end = ConvertingFunctions.convertEndToInt(endDataBlock.readQRArray());
+        if (!(start==12 & end == 6)){
+            throw new IllegalArgumentException("잘못된 QR입니다.");
+        }
 
+
+        int length = lengthFunction.apply(dataBlock);
+
+        String result = decodeStep.stream().map(step->step.apply(dataBlock))
+                .limit(length)
+                .reduce("",(a,b)->a+b);
+
+        System.out.print(start+" "+end);
+        System.out.println("data = \""+result+"\"");
     }
 }

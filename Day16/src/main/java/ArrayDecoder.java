@@ -1,9 +1,8 @@
-import java.util.function.Consumer;
-
 public class ArrayDecoder {
-    public static int[][] QRArray =  new int[21][21];
+    public static int[][] QRArray = setQRArray();
 
-    public static void setQRArray(){
+    private static int[][] setQRArray(){
+        int[][] array = new int[21][21];
         String[] QR ={
                 "111111101000001111111",
                 "100000101000001000001",
@@ -29,24 +28,9 @@ public class ArrayDecoder {
         };
         for(int i = 0 ; i<21; i++){
             for (int j = 0; j<21;j++){
-                QRArray[i][j]= Character.getNumericValue(QR[i].charAt(j));
+                array[i][j]= Character.getNumericValue(QR[i].charAt(j));
             }
         }
+        return array;
     }
-
-    public ArrayDecoder(String[] QR){
-        for(int i = 0 ; i<21; i++){
-            for (int j = 0; j<21;j++){
-                QRArray[i][j]= QR[i].charAt(j);
-            }
-        }
-    }
-
-    public static Consumer<DataBlock> upFunction = dataBlock -> {
-        dataBlock.moveStartCoordinate(-4,0);
-        dataBlock.moveEndCoordinate(-4,0);
-    };
-
-
-
 }

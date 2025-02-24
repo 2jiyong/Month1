@@ -81,6 +81,7 @@ public class QRDecoder {
                 new DataBlock(new int[]{9,2},new int[]{12,3}),new DataBlock(new int[]{9,0},new int[]{12,1})};
 
         StringBuilder sb = new StringBuilder();
+
         sb.append("0x");
         for(int i =0; i< errorDataBlocks.length;i++){
             if (i%2==0){

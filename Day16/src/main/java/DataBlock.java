@@ -34,14 +34,6 @@ public class DataBlock {
         endCoordinate[1]+=c;
     }
 
-    public int[] getStartCoordinate(){
-        return startCoordinate;
-    }
-
-    public int[] getEndCoordinate(){
-        return endCoordinate;
-    }
-
     private static int[][] makeQR(){
         int[][] array = new int[21][21];
         String[] QR ={

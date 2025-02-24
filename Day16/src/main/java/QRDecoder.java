@@ -3,6 +3,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
+import java.util.stream.IntStream;
 
 public class QRDecoder {
     private Map<Integer,String> parseMap = new HashMap<>();
@@ -78,8 +79,6 @@ public class QRDecoder {
         return parseMap.get(ConvertingFunctions.convertDownToInt(dataBlock.readQRArray()));
     };
 
-
-
     public Function<DataBlock,String> CCWFunction = dataBlock -> {
         //위치 옮기고
         dataBlock.moveStartCoordinate(-2,-2);
@@ -108,7 +107,7 @@ public class QRDecoder {
             upAfterCWFunction,upFunction,CCWFunction,downAfterCCWFunction,downFunction,CWFunction,upAfterCWFunction,upFunction,upFunction,
             upSpaceFunction,CCWFunction,downAfterCCWFunction,downSpaceFunction,downFunction,downFunction));
 
-
+    private List<Function<DataBlock,String>> errorDecodeStep = new ArrayList<>(List.of());
 
     public void decode() {
         DataBlock dataBlock = new DataBlock(new int[]{19, 19}, new int[]{20, 20});
@@ -119,15 +118,27 @@ public class QRDecoder {
         if (!(start==12 & end == 6)){
             throw new IllegalArgumentException("잘못된 QR입니다.");
         }
-
-
         int length = lengthFunction.apply(dataBlock);
 
         String result = decodeStep.stream().map(step->step.apply(dataBlock))
                 .limit(length)
                 .reduce("",(a,b)->a+b);
 
-        System.out.print(start+" "+end);
-        System.out.println("data = \""+result+"\"");
+        DataBlock[] errorDataBlocks = new DataBlock[]{new DataBlock(new int[]{9,7},new int[]{12,8}), new DataBlock(new int[]{9,4},new int[]{12,5}),
+                new DataBlock(new int[]{9,2},new int[]{12,3}),new DataBlock(new int[]{9,0},new int[]{12,1})};
+
+        StringBuilder sb = new StringBuilder();
+        sb.append("0x");
+        for(int i =0; i< errorDataBlocks.length;i++){
+            if (i%2==0){
+                sb.append(String.format("%2X",ConvertingFunctions.convertUpToInt(errorDataBlocks[i].readQRArray())));
+            } else{
+                sb.append(String.format("%2X",ConvertingFunctions.convertDownToInt(errorDataBlocks[i].readQRArray())));
+            }
+        }
+
+        String[] QRResult = new String[]{result,sb.toString()};
+        System.out.println("data = "+QRResult[0]);
+        System.out.println("error = "+QRResult[1]);
     }
 }

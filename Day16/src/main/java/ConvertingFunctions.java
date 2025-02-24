@@ -2,7 +2,11 @@ import java.util.function.Function;
 
 public class ConvertingFunctions {
     // dataBlock을 받아서 위치를 옮기고, 그 위치의 값을 읽어 String으로 parse
-    public static int convertUpToInt(int[][] array){
+
+//    public static Function<>
+
+
+    public static Function<int[][],int[][]> convertUpToInt = array->{
         int rows = array.length;
         int cols = array[0].length;
         int[][] reversed = new int[rows][cols];
@@ -12,8 +16,8 @@ public class ConvertingFunctions {
                 reversed[i][j] = array[rows - 1 - i][cols - 1 - j];
             }
         }
-        return convertArrayToInt(reversed);
-    }
+        return reversed;
+    };
 
     public static int convertDownToInt(int[][] array){
         int rows = array.length;

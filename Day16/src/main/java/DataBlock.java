@@ -24,7 +24,6 @@ public class DataBlock {
         return array;
     }
 
-
     public void moveStartCoordinate(int r, int c){
         startCoordinate[0]+=r;
         startCoordinate[1]+=c;

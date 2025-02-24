@@ -29,6 +29,8 @@ public class QRDecoder {
         parseMap.put(44,":");
     }
 
+//    private Function<DataBlock,String> createMoveFunction(int startdr,int startdc,int enddr,int enddc, )
+
     // dataBlock을 받아서 위치를 옮기고, 그 위치의 값을 읽어 String으로 parse
     public Function<DataBlock,String> upFunction = dataBlock -> {
         //위치 옮기고

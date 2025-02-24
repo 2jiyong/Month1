@@ -2,7 +2,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.function.Consumer;
 import java.util.function.Function;
 
 public class QRDecoder {
@@ -17,7 +16,7 @@ public class QRDecoder {
             parseMap.put(i,Integer.toString(i));
         }
         for(int i = 10; i<36;i++){
-            parseMap.put(i,Integer.toString((char)(i+55)));
+            parseMap.put(i,Character.toString((char)(i+55)));
         }
         parseMap.put(36," ");
         parseMap.put(37,"$");
@@ -32,13 +31,14 @@ public class QRDecoder {
 
     // dataBlock을 받아서 위치를 옮기고, 그 위치의 값을 읽어 String으로 parse
     public Function<DataBlock,String> upFunction = dataBlock -> {
+        //위치 옮기고
         dataBlock.moveStartCoordinate(-4,0);
         dataBlock.moveEndCoordinate(-4,0);
-        int[][] convertedArray = convertArrayUp(dataBlock.readQRArray());
-        return parseMap.get(convertArrayToInt(convertedArray));
+        // 배열을 변환하고, 값을 읽어 String으로 변환
+        return convertArrayToString(convertArrayToUp(dataBlock.readQRArray()));
     };
 
-    public int[][] convertArrayUp(int[][] array){
+    public int[][] convertArrayToUp(int[][] array){
         int rows = array.length;
         int cols = array[0].length;
         int[][] reversed = new int[rows][cols];
@@ -51,25 +51,23 @@ public class QRDecoder {
         return reversed;
     }
 
-    private int convertArrayToInt(int[][] array){
+    private String convertArrayToString(int[][] array){
         StringBuilder sb = new StringBuilder();
         for(int r = 0 ; r<array.length; r++){
             for(int c = 0 ; c<array[0].length;c++){
                 sb.append(array[r][c]);
             }
         }
-        return Integer.parseInt(sb.toString());
+        return parseMap.get(Integer.parseInt(sb.toString(),2));
     }
-
-
-
 
     private List<Function<DataBlock,String>> decodeStep = new ArrayList<>(List.of(upFunction,upFunction));
 
     public void decode() {
         DataBlock dataBlock = new DataBlock(new int[]{15, 19}, new int[]{18, 20});
 
-        decodeStep.stream().forEach(step->step.apply(dataBlock));
+        decodeStep.stream().map(step->step.apply(dataBlock))
+                .forEach(System.out::println);
 
     }
 }

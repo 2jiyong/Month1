@@ -16,7 +16,7 @@ public class DataBlock {
         int[][] array = new int[endR-startR+1][endC-startC+1];
         for (int r = startR, i = 0; r < endR + 1; r++, i++) {
             for (int c = startC, j = 0; c < endC + 1; c++, j++) {
-                array[i][j] = ArrayDecoder.QRArray[r][c];
+                array[i][j] = QRMaker.QRArray[r][c];
             }
         }
         return array;

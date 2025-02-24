@@ -35,33 +35,70 @@ public class QRDecoder {
         dataBlock.moveStartCoordinate(-4,0);
         dataBlock.moveEndCoordinate(-4,0);
         // 배열을 변환하고, 값을 읽어 String으로 변환
-        return convertArrayToString(convertArrayToUp(dataBlock.readQRArray()));
+        return parseMap.get(ConvertingFunctions.convertUpToInt(dataBlock.readQRArray()));
     };
 
-    public int[][] convertArrayToUp(int[][] array){
-        int rows = array.length;
-        int cols = array[0].length;
-        int[][] reversed = new int[rows][cols];
-        // 180도 회전 (위아래 + 좌우 뒤집기)
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < cols; j++) {
-                reversed[i][j] = array[rows - 1 - i][cols - 1 - j];
-            }
-        }
-        return reversed;
-    }
+    public Function<DataBlock,String> upAfterCWFunction = dataBlock -> {
+        //위치 옮기고
+        dataBlock.moveStartCoordinate(-4,0);
+        dataBlock.moveEndCoordinate(-2,-2);
+        // 배열을 변환하고, 값을 읽어 String으로 변환
+        return parseMap.get(ConvertingFunctions.convertUpToInt(dataBlock.readQRArray()));
+    };
 
-    private String convertArrayToString(int[][] array){
-        StringBuilder sb = new StringBuilder();
-        for(int r = 0 ; r<array.length; r++){
-            for(int c = 0 ; c<array[0].length;c++){
-                sb.append(array[r][c]);
-            }
-        }
-        return parseMap.get(Integer.parseInt(sb.toString(),2));
-    }
+    public Function<DataBlock,String> upSpaceFunction = dataBlock -> {
+        //위치 옮기고
+        dataBlock.moveStartCoordinate(-5,0);
+        dataBlock.moveEndCoordinate(-5,0);
+        // 배열을 변환하고, 값을 읽어 String으로 변환
+        return parseMap.get(ConvertingFunctions.convertUpToInt(dataBlock.readQRArray()));
+    };
 
-    private List<Function<DataBlock,String>> decodeStep = new ArrayList<>(List.of(upFunction,upFunction));
+    public Function<DataBlock,String> downFunction = dataBlock -> {
+        //위치 옮기고
+        dataBlock.moveStartCoordinate(4,0);
+        dataBlock.moveEndCoordinate(4,0);
+        // 배열을 변환하고, 값을 읽어 String으로 변환
+        return parseMap.get(ConvertingFunctions.convertDownToInt(dataBlock.readQRArray()));
+    };
+
+    public Function<DataBlock,String> downAfterCCWFunction = dataBlock -> {
+        //위치 옮기고
+        dataBlock.moveStartCoordinate(2,0);
+        dataBlock.moveEndCoordinate(4,-2);
+        // 배열을 변환하고, 값을 읽어 String으로 변환
+        return parseMap.get(ConvertingFunctions.convertDownToInt(dataBlock.readQRArray()));
+    };
+
+    public Function<DataBlock,String> downSpaceFunction = dataBlock -> {
+        //위치 옮기고
+        dataBlock.moveStartCoordinate(5,0);
+        dataBlock.moveEndCoordinate(5,0);
+        // 배열을 변환하고, 값을 읽어 String으로 변환
+        return parseMap.get(ConvertingFunctions.convertDownToInt(dataBlock.readQRArray()));
+    };
+
+
+
+    public Function<DataBlock,String> CCWFunction = dataBlock -> {
+        //위치 옮기고
+        dataBlock.moveStartCoordinate(-2,-2);
+        dataBlock.moveEndCoordinate(-4,0);
+        // 배열을 변환하고, 값을 읽어 String으로 변환
+        return parseMap.get(ConvertingFunctions.convertCCWToInt(dataBlock.readQRArray()));
+    };
+
+    public Function<DataBlock,String> CWFunction = dataBlock -> {
+        //위치 옮기고
+        dataBlock.moveStartCoordinate(4,-2);
+        dataBlock.moveEndCoordinate(2,0);
+        // 배열을 변환하고, 값을 읽어 String으로 변환
+        return parseMap.get(ConvertingFunctions.convertCWToInt(dataBlock.readQRArray()));
+    };
+
+    private List<Function<DataBlock,String>> decodeStep = new ArrayList<>(List.of(upFunction,CCWFunction,downAfterCCWFunction,downFunction,CWFunction,
+            upAfterCWFunction,upFunction,CCWFunction,downAfterCCWFunction,downFunction,CWFunction,upAfterCWFunction,upFunction,upFunction,
+            upSpaceFunction,CCWFunction,downAfterCCWFunction,downSpaceFunction,downFunction,downFunction));
 
     public void decode() {
         DataBlock dataBlock = new DataBlock(new int[]{15, 19}, new int[]{18, 20});

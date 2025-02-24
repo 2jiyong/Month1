@@ -1,7 +1,7 @@
-public class ArrayDecoder {
-    public static int[][] QRArray = setQRArray();
+public class QRMaker {
+    public static int[][] QRArray = makeQR();
 
-    private static int[][] setQRArray(){
+    private static int[][] makeQR(){
         int[][] array = new int[21][21];
         String[] QR ={
                 "111111101000001111111",

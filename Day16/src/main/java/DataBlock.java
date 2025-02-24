@@ -7,15 +7,30 @@ public class DataBlock {
         endCoordinate = end;
     }
 
+    public int[][] readQRArray(){
+        int startR=startCoordinate[0];
+        int startC=startCoordinate[1];
+        int endR = endCoordinate[0];
+        int endC = endCoordinate[1];
 
-    public void moveStartCoordinate(int x, int y){
-        startCoordinate[0]+=x;
-        startCoordinate[1]+=y;
+        int[][] array = new int[endR-startR+1][endC-startC+1];
+        for (int r = startR, i = 0; r < endR + 1; r++, i++) {
+            for (int c = startC, j = 0; c < endC + 1; c++, j++) {
+                array[i][j] = ArrayDecoder.QRArray[r][c];
+            }
+        }
+        return array;
     }
 
-    public void moveEndCoordinate(int x, int y){
-        endCoordinate[0]+=x;
-        endCoordinate[1]+=y;
+
+    public void moveStartCoordinate(int r, int c){
+        startCoordinate[0]+=r;
+        startCoordinate[1]+=c;
+    }
+
+    public void moveEndCoordinate(int r, int c){
+        endCoordinate[0]+=r;
+        endCoordinate[1]+=c;
     }
 
     public int[] getStartCoordinate(){

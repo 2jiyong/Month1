@@ -1,5 +1,9 @@
+
+import java.util.function.Consumer;
+import java.util.function.Function;
+
 public class ArrayDecoder {
-    private int[][] QRArray=  new int[21][21];
+    public static int[][] QRArray=  new int[21][21];
 
     public ArrayDecoder(String[] QR){
         for(int i = 0 ; i<21; i++){
@@ -9,6 +13,10 @@ public class ArrayDecoder {
         }
     }
 
+    public static Consumer<DataBlock> upFunction = dataBlock -> {
+        dataBlock.moveStartCoordinate(-4,0);
+        dataBlock.moveEndCoordinate(-4,0);
+    };
 
 
 

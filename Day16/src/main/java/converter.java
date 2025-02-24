@@ -1,10 +1,11 @@
 import java.util.function.Function;
 
-public class ConvertingFunctions {
+public class converter {
     // dataBlock을 받아서 위치를 옮기고, 그 위치의 값을 읽어 String으로 parse
 
-//    public static Function<>
-
+    public static Function<int[][], Integer> applyTransform(Function<int[][],int[][]> function){
+        return array -> convertArrayToInt(function.apply(array));
+    }
 
     public static Function<int[][],int[][]> convertUpToInt = array->{
         int rows = array.length;
@@ -19,7 +20,7 @@ public class ConvertingFunctions {
         return reversed;
     };
 
-    public static int convertDownToInt(int[][] array){
+    public static Function<int[][],int[][]> convertDownToInt = array->{
         int rows = array.length;
         int cols = array[0].length;
         int[][] reversed = new int[rows][cols];
@@ -30,10 +31,10 @@ public class ConvertingFunctions {
             }
         }
 
-        return convertArrayToInt(reversed);
-    }
+        return reversed;
+    };
 
-    public static int convertCCWToInt(int[][] array){
+    public static Function<int[][],int[][]> convertCCWToInt = array->{
         int[][] reversed = new int[2][4];
         reversed[0][0] = array[1][3]; // 6
         reversed[0][1] = array[1][2]; // 5
@@ -46,10 +47,10 @@ public class ConvertingFunctions {
 
         reversed[1][2] = array[1][1]; // 2
         reversed[1][3] = array[1][0]; // 1
-        return convertArrayToInt(reversed);
-    }
+        return reversed;
+    };
 
-    public static int convertCWToInt(int[][] array){
+    public static Function<int[][],int[][]> convertCWToInt = array->{
         int[][] reversed = new int[2][4];
         // 첫 번째 행: 두 번째 행의 오른쪽 부분(7,8)과 첫 번째 행의 왼쪽 부분(1,2)을 역순으로 결합
         reversed[0][0] = array[0][3]; // 8
@@ -61,28 +62,28 @@ public class ConvertingFunctions {
         reversed[1][1] = array[1][0]; // 5
         reversed[1][2] = array[0][1]; // 4
         reversed[1][3] = array[0][0]; // 3
-        return convertArrayToInt(reversed);
-    }
+        return reversed;
+    };
 
-    public static int convertStartToInt(int[][] array){
+    public static Function<int[][],int[][]> convertStartToInt = array ->{
         int[][] reversed = new int[2][2];
         // 첫 번째 행: 두 번째 행의 오른쪽 부분(7,8)과 첫 번째 행의 왼쪽 부분(1,2)을 역순으로 결합
         reversed[0][0] = array[1][1]; // 8
         reversed[0][1] = array[1][0]; // 7
         reversed[1][0] = array[0][1]; // 2
         reversed[1][1] = array[0][0]; // 1
-        return convertArrayToInt(reversed);
-    }
+        return reversed;
+    };
 
-    public static int convertEndToInt(int[][] array){
+    public static Function<int[][],int[][]> convertEndToInt= array->{
         int[][] reversed = new int[2][2];
         // 첫 번째 행: 두 번째 행의 오른쪽 부분(7,8)과 첫 번째 행의 왼쪽 부분(1,2)을 역순으로 결합
         reversed[0][0] = array[0][1]; // 8
         reversed[0][1] = array[0][0]; // 7
         reversed[1][0] = array[1][1]; // 2
         reversed[1][1] = array[1][0]; // 1
-        return convertArrayToInt(reversed);
-    }
+        return reversed;
+    };
 
     private static int convertArrayToInt(int[][] array){
         StringBuilder sb = new StringBuilder();

@@ -13,7 +13,7 @@ public class FileSystemManager {
 //    }
 
     // 해당 경로로 directory 가 있는지 확인
-    public static boolean readDataToFindDirectory(String path){
+    public static boolean readDataToFindFile(String path){
         String metaDataFile = "src/main/java/myfs.dat";
         try (BufferedReader br = new BufferedReader(new FileReader(metaDataFile))) {
             String line;
@@ -21,7 +21,7 @@ public class FileSystemManager {
             br.readLine();
             while ((line = br.readLine()) != null) {
                 String[] values = line.split(","); // 쉼표로 분리
-                if (values[1]==path) return true;
+                if (values[1].equals(path)) return true;
             }
 
         } catch (IOException e) {

@@ -15,7 +15,7 @@ public class FileSystem {
 
     public void makeDirectory(String path, String name){
         String abPath = path + name;
-        if (!FileSystemManager.readDataToFindDirectory(abPath)){
+        if (!FileSystemManager.readDataToFindFile(abPath)){
             //디렉토리 생성
             FileSystemManager.writeData(abPath);
         }

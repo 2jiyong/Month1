@@ -98,9 +98,10 @@ public class FileSystemManager {
             br.readLine();
             while ((line = br.readLine()) != null) {
                 String[] values = line.split(",",-1); // 쉼표로 분리
+                // 부모가 path 인 경우에 추가
                 if (values[3].equals(path)) sb.append(values[0]+" ").append(values[1]).append("\n");
             }
-            if(sb.isEmpty())throw new IllegalArgumentException("파일이 존재하지 않습니다.");
+            if(sb.isEmpty()) sb.append("파일이 없습니다.");
             return sb.toString();
         } catch (IOException e) {
             throw new RuntimeException("파일을 읽는 중 오류 발생: " + e.getMessage(), e);

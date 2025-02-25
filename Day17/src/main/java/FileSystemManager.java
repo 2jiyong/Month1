@@ -14,7 +14,7 @@ public class FileSystemManager {
 
     // 해당 경로로 directory 가 있는지 확인
     public static boolean readDataToFindDirectory(String path){
-        String metaDataFile = "myfs.dat";
+        String metaDataFile = "src/main/java/myfs.dat";
         try (BufferedReader br = new BufferedReader(new FileReader(metaDataFile))) {
             String line;
             //헤더 제거
@@ -30,17 +30,22 @@ public class FileSystemManager {
         return false;
     }
 
-    public static void writeData(String path, String type){
-        String metaDataFile = "myfs.dat";
+    public static void writeData(String path){
+        String metaDataFile = "src/main/java/myfs.dat";
         Path parent = Paths.get(path).getParent();
 
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(metaDataFile,true))) {
-            bw.write(type);
+            bw.write("Directory");
+            bw.write(",");
             bw.write(path);
-            bw.write(0);
-            bw.write(parent.toString());
+            bw.write(",");
+            bw.write("0");
+            bw.write(",");
+            bw.write(parent.toString().replace("\\","/"));
+            bw.write("\n");
         } catch (IOException e) {
             e.printStackTrace();
+            System.out.println("오류");
         }
     }
 }

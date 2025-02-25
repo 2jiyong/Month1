@@ -6,8 +6,8 @@ public class FileSystem {
         this.size = size;
     }
 
-    public FileSystem getInstance(int size){
-        if(instance != null){
+    public static FileSystem getInstance(int size){
+        if(instance == null){
             instance = new FileSystem(size);
         }
         return instance;
@@ -17,6 +17,7 @@ public class FileSystem {
         String abPath = path + name;
         if (!FileSystemManager.readDataToFindDirectory(abPath)){
             //디렉토리 생성
+            FileSystemManager.writeData(abPath);
         }
     }
 }

@@ -1,9 +1,10 @@
 public class Test {
     public static void main(String[] args) {
-        FileSystem fileSystem=FileSystem.getInstance(1000);
+        FileSystem fileSystem=FileSystem.init(1000);
         fileSystem.makeDirectory("/","hello");
+        fileSystem.makeFile("/hello","world.txt","hello!!");
+        System.out.println(fileSystem.readFile("/hello/world.txt"));
+        System.out.println(fileSystem.readDirectory("/hello"));
 
-//        String currentDir = System.getProperty("user.dir");
-//        System.out.println("현재 실행 중인 디렉토리: " + currentDir);
     }
 }

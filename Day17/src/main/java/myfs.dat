@@ -1,2 +1,4 @@
 TYPE,PATH,SIZE,PARENT
+Directory,/,0,
 Directory,/hello,0,/
+File,/hello/world.txt,0,/hello

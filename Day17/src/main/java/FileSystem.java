@@ -8,11 +8,11 @@ public class FileSystem {
         this.size = size;
     }
 
-    public static FileSystem init(int size){
+    public static FileSystem init(int size, boolean isNewFile){
         if(instance == null){
             instance = new FileSystem(size);
         }
-        instance.makeDirectory("","");
+        if(isNewFile) instance.makeDirectory("","");
         return instance;
     }
 
@@ -28,7 +28,7 @@ public class FileSystem {
     }
 
     public void makeFile(String path, String name,String data){
-        String abPath = path +"/"+ name;
+        String abPath = (path.equals("/")) ? "/"+name  :path +"/"+ name;
         if (!FileSystemManager.readDataToFindFile(abPath)){
             //디렉토리 생성
             FileSystemManager.createFile(abPath);

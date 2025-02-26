@@ -3,16 +3,18 @@ import java.util.Scanner;
 public class Query {
     private FileSystem fileSystem;
 
-    public Query(FileSystem fileSystem){
-        this.fileSystem = fileSystem;
-    }
-
     public void getQuery(){
         Scanner sc = new Scanner(System.in);
         String result = "";
-        System.out.println("저장된 파일 시스템이 없습니다.\n파일 시스템의 최대 크기를 입력해 주세요.");
-        String size = sc.nextLine();
-        System.out.println(size+" 파일 시스템의 초기화를 완료했습니다.");
+        if(FileSystemManager.readDataToFindFile("/")){
+            System.out.println("저장된 파일 시스템이 있습니다.\n저장된 파일 시스템을 불러옵니다.");
+            fileSystem = FileSystem.init(1000,false);
+        } else {
+            System.out.println("저장된 파일 시스템이 없습니다.\n파일 시스템의 최대 크기를 입력해 주세요.");
+            String size = sc.nextLine();
+            fileSystem = FileSystem.init(Integer.parseInt(size.replaceAll("[^0~9]","")),true);
+            System.out.println(size+" 파일 시스템의 초기화를 완료했습니다.");
+        }
         try {
             while (true) {
                 System.out.print("my-vfs>");

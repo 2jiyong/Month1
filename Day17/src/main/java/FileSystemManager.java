@@ -3,9 +3,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class FileSystemManager {
-
-
-
     public static boolean readDataToFindFile(String path){
         String metaDataFile = "src/main/java/myfs.dat";
         try (BufferedReader br = new BufferedReader(new FileReader(metaDataFile))) {

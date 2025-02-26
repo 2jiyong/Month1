@@ -1,7 +1,4 @@
 TYPE,PATH,SIZE,PARENT
 Directory,/,0,
 Directory,/hello,0,/
-Directory,/hello2,0,/
-File,/printHello.txt,0,/
-File,/hello2/printHello.txt,0,/hello2
-File,/hello123.txt,0,/
+File,/hello/hello123.txt,0,/hello

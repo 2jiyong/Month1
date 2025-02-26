@@ -1,4 +1,2 @@
 PATH,DATA
-/printHello.txt,"hello there"
-/hello2/printHello.txt,"hello2 there"
-/hello123.txt,"hello"
+/hello/hello123.txt,"abcd"

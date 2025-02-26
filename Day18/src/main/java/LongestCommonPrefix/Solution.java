@@ -4,7 +4,7 @@ class Solution {
     public String longestCommonPrefix(String[] strs) {
         int idx = 0 ;
         StringBuilder sb = new StringBuilder();
-        try{
+        try {
             while (true){
                 boolean isCommon = true;
                 char first = strs[0].charAt(idx);

@@ -14,7 +14,7 @@ public class DayConverter {
     }
 
     public int[] findMarsDateByDays(int days){
-        int marsYear = 0, marsMonth = 1, marsDay = 1;
+        int marsYear = 1, marsMonth = 1, marsDay = 1;
         // 2년을 기준으로 해서 연을 구함
         marsYear += (days/(MARS_YEAR_BY_DAY*2+1))*2 ;
         int leftDays = days%(MARS_YEAR_BY_DAY*2+1);
@@ -31,17 +31,29 @@ public class DayConverter {
                 if(leftDays>=MARS_MONTH_BY_DAY){
                     leftDays-=MARS_MONTH_BY_DAY;
                     marsMonth++;
-                }
+                } else break;
             } else {
                 if(leftDays>=MARS_MONTH_BY_DAY-1){
                     leftDays-=MARS_MONTH_BY_DAY-1;
                     marsMonth++;
-                }
+                } else break;
             }
         }
 
         marsDay+=leftDays;
 
         return new int[] {marsYear,marsMonth,marsDay};
+    }
+
+    public String printConvertedCalender(String date){
+        String[] splitDate = date.split("-");
+        LocalDate localDate =LocalDate.of(Integer.parseInt(splitDate[0]),Integer.parseInt(splitDate[1]),Integer.parseInt(splitDate[2]));
+        int days = findDaysByEarthDate(localDate);
+        int[] convertedDate = findMarsDateByDays(days);
+        StringBuilder sb = new StringBuilder();
+        sb.append("지구날은 ").append(days).append(" => ");
+        sb.append(convertedDate[0]).append(" 화성년 ").append(convertedDate[1]).append("월 ").append(convertedDate[2]).append("일\n");
+        sb.append(MarsCalender.printMarsCalender(convertedDate[0],convertedDate[1],convertedDate[2]));
+        return sb.toString();
     }
 }

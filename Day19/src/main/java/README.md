@@ -12,7 +12,8 @@
 그리고 진행상황 바 만들기
 \r 캐리지 리턴 사용해서 줄 업데이트 하기
 비동기 api 이용해서 연산하는 동안 계속 진행상황 바 업데이트하기  
-ComputableFuture 사용해서 비동기로 연산하기
+CompletableFuture 사용해서 비동기로 연산하기
 
 dayconverter 와 calendarprinter를 분리해서 구현하기
 ```
+실수 스레드

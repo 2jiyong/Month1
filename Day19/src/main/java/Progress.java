@@ -36,6 +36,4 @@ public class Progress extends Thread{
 
         return sb.toString();
     }
-
-
 }

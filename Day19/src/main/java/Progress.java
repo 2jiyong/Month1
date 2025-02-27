@@ -21,8 +21,8 @@ public class Progress extends Thread{
     }
 
     public String progressPercentage(int percent){
-        String on = "█";
-        String off = "▁";
+        String on = "\033[32m█\033[0m";
+        String off = "\033[32m▁\033[0m";
         StringBuilder sb = new StringBuilder();
         for(int i = 0 ; i<percent; i++){
             sb.append(on);
@@ -32,7 +32,7 @@ public class Progress extends Thread{
             sb.append(off);
             sb.append(off);
         }
-        sb.append(" 화성까지 여행 ").append(percent*10).append("%");
+        sb.append(" \033[31m화성\033[0m까지 여행 ").append("\033[32m"+percent*10+"\033[0m").append("%");
 
         return sb.toString();
     }

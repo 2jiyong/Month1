@@ -65,7 +65,7 @@ public class DayConverter extends Thread{
         int days = findDaysByEarthDate(localDate);
         int[] convertedDate = findMarsDateByDays(days);
         StringBuilder sb = new StringBuilder();
-        sb.append("지구날은 ").append(days).append(" => ");
+        sb.append("\033[32m지구날은\033[0m ").append(days).append(" => ");
         sb.append(convertedDate[0]).append(" 화성년 ").append(convertedDate[1]).append("월 ").append(convertedDate[2]).append("일\n");
         sb.append(printMarsCalender(convertedDate[0],convertedDate[1],convertedDate[2]));
         return sb.toString();
@@ -75,14 +75,13 @@ public class DayConverter extends Thread{
         StringBuilder sb = new StringBuilder();
         sb.append("\n     ").append(year).append("년 ").append(month).append("월\n");
         sb.append("Su Lu Ma Me Jo Ve Sa\n");
-        sb.append(" 1  2  3  4  5  6  7\n" +
-                " 8  9 10 11 12 13 14\n" +
-                "15 16 17 18 19 20 21\n" +
-                "22 23 24 25 26 27 ");
-
-        if(month%6!=0) sb.append("28");
-        else if (month==24 && year%2==0) sb.append("28");
-
+        for(int i = 1 ; i <= 28; i++ ){
+            if(month%6==0 && month!=24 && year%2==1) continue;
+            if(i==day) sb.append("\033[31m");
+            sb.append(String.format("%2d",i)).append(" ");
+            if(i==day) sb.append("\033[0m");
+            if (i%7==0) sb.append("\n");
+        }
         return sb.toString();
     }
 }

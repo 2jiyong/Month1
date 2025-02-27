@@ -6,7 +6,7 @@ public class Test {
         System.out.print("> 지구날짜는? ");
         String input = sc.nextLine();
         String date = "2024-1-1";
-        DayConverter dayConverter = new DayConverter(input);
+        DayConverter dayConverter = new DayConverter(date);
         Progress progress = new Progress();
 
         progress.start();

@@ -74,12 +74,16 @@ public class DayConverter extends Thread{
     public String printMarsCalender(int year, int month, int day){
         StringBuilder sb = new StringBuilder();
         sb.append("\n     ").append(year).append("년 ").append(month).append("월\n");
-        sb.append("Su Lu Ma Me Jo Ve Sa\n");
+        sb.append("\033[31mSu\033[0m Lu Ma Me Jo Ve \033[34mSa\033[0m\n");
         for(int i = 1 ; i <= 28; i++ ){
             if(month%6==0 && month!=24 && year%2==1) continue;
-            if(i==day) sb.append("\033[31m");
+            if(i%7==1) sb.append("\033[31m");
+            if(i%7==0) sb.append("\033[34m");
+            if(i==day) sb.append("\033[33m");
             sb.append(String.format("%2d",i)).append(" ");
             if(i==day) sb.append("\033[0m");
+            if(i%7==1) sb.append("\033[0m");
+            if(i%7==0) sb.append("\033[0m");
             if (i%7==0) sb.append("\n");
         }
         return sb.toString();

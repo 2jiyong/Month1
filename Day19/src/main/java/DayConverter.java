@@ -37,23 +37,15 @@ public class DayConverter extends Thread{
             marsYear++;
         }
         // 구한 연도가 짝수면 윤년
-//        boolean isLeapYear = marsYear % 2 == 0;
-
         // 월 연산 남은 날짜의 최대는 668
-        for(int month=1; month<MARS_YEAR_BY_MONTH; month++){
-            if (month%6 != 0){
-                if(leftDays>=MARS_MONTH_BY_DAY){
-                    leftDays-=MARS_MONTH_BY_DAY;
-                    marsMonth++;
-                } else break;
-            } else {
-                if(leftDays>=MARS_MONTH_BY_DAY-1){
-                    leftDays-=MARS_MONTH_BY_DAY-1;
-                    marsMonth++;
-                } else break;
-            }
+        for (int month = 1; month < MARS_YEAR_BY_MONTH; month++) {
+            int lastDay = month % 6 == 0 ? MARS_MONTH_BY_DAY-1 : MARS_MONTH_BY_DAY;
+            if (leftDays >= lastDay) {
+                leftDays -= lastDay;
+                marsMonth++;
+            } else break;
         }
-
+        // 남은 날짜는 일에 추가
         marsDay+=leftDays;
 
         return new int[] {marsYear,marsMonth,marsDay};

@@ -68,7 +68,7 @@ public class DayConverter extends Thread{
         sb.append("\n     ").append(year).append("년 ").append(month).append("월\n");
         sb.append("\033[31mSu\033[0m Lu Ma Me Jo Ve \033[34mSa\033[0m\n");
         for(int i = 1 ; i <= 28; i++ ){
-            if(month%6==0 && month!=24 && year%2==1) continue;
+            if (month % 6 == 0 && month != 24 && year % 2 == 1 && i == 28) continue;
             if(i%7==1) sb.append("\033[31m");
             if(i%7==0) sb.append("\033[34m");
             if(i==day) sb.append("\033[33m");

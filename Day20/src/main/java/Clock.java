@@ -4,38 +4,29 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Clock extends JFrame {
-    private JLabel timeLabel;
-
     private List<JPanel> panelList ;
-    private final String[] wordList = new String[] {"오","전","후","영"};
-
-
-
-
-
+    private final List<String> wordList = new ArrayList<>(List.of
+        ("오전후영", "열한두세", "네다여섯", "일곱여덟", "아홉시달", "이삼사오", "심일이삼", "사오육칠", "팔구분초"));
 
     public Clock(){
         setTitle("한글 시계");
         setSize(400,600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
-        JPanel mainPanel = new JPanel(new GridLayout(2,1));
+        JPanel mainPanel = new JPanel(new GridLayout(9,1));
+        mainPanel.setBackground(Color.DARK_GRAY);
 
-        JPanel row1 = new JPanel(new GridLayout(1,4));
-        JPanel row2 = new JPanel(new GridLayout(1,4));
-
-        for(int i = 0 ; i<wordList.length; i++){
-            JLabel word = new JLabel(wordList[i],SwingConstants.CENTER);
-            word.setFont(new Font("고딕", Font.BOLD, 48));
-            row1.add(word);
+        for(int row = 0 ; row < wordList.size(); row ++){
+            JPanel rowPanel = new JPanel(new GridLayout(1,4));
+            rowPanel.setBackground(Color.DARK_GRAY);
+            for(int i = 0 ; i<4; i++){
+                JLabel word = new JLabel(wordList.get(row).substring(i,i+1),SwingConstants.CENTER);
+                word.setFont(new Font("고딕", Font.BOLD,48));
+                word.setForeground(Color.LIGHT_GRAY);
+                rowPanel.add(word);
+            }
+            mainPanel.add(rowPanel);
         }
-        for(int i = 0 ; i<wordList.length; i++){
-            JLabel word = new JLabel(wordList[i],SwingConstants.CENTER);
-            word.setFont(new Font("고딕", Font.BOLD, 48));
-            row2.add(word);
-        }
-        mainPanel.add(row1);
-        mainPanel.add(row2);
 
         add(mainPanel, BorderLayout.CENTER);
 

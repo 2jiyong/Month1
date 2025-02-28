@@ -19,7 +19,7 @@ public class Clock extends JFrame {
         setLayout(new BorderLayout());
 
 
-        setLightList();
+
 
         JPanel mainPanel = new JPanel(new GridLayout(9, 1));
         mainPanel.setBackground(Color.BLACK);
@@ -35,13 +35,14 @@ public class Clock extends JFrame {
             }
             mainPanel.add(rowPanel);
         }
+        setLightList();
         paintAgain();
         add(mainPanel, BorderLayout.CENTER);
     }
 
     public Runnable runClockFunction() {
         return () -> {
-            localTime.plusSeconds(1);
+            localTime = localTime.plusSeconds(1);
             setLightList();
             paintAgain();
             this.revalidate();
@@ -69,7 +70,15 @@ public class Clock extends JFrame {
         // 오전 오후
         lightByHour(hour);
         lightByMinute(minute);
+        paintSecond(second);
 
+
+    }
+
+    public void paintSecond(int second){
+        JLabel jLabel = (JLabel) panelList.get(8).getComponent(3);
+        jLabel.setText(String.valueOf(second));
+        jLabel.setFont(new Font("고딕", Font.BOLD, 12));
     }
 
 

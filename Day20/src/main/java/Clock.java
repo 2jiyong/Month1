@@ -19,8 +19,6 @@ public class Clock extends JFrame {
         setLayout(new BorderLayout());
 
 
-
-
         JPanel mainPanel = new JPanel(new GridLayout(9, 1));
         mainPanel.setBackground(Color.BLACK);
 
@@ -50,10 +48,11 @@ public class Clock extends JFrame {
         };
     }
 
-    public void paintAgain(){
-        for(int row = 0 ; row<9;row++){
-            for(int i = 0 ; i<4;i++){
-                if(lightList.get(row)[i]) panelList.get(row).getComponent(i).setForeground(Color.WHITE);
+    public void paintAgain() {
+        for (int row = 0; row < 9; row++) {
+            for (int i = 0; i < 4; i++) {
+                if (row == 4 && i == 3) continue;
+                if (lightList.get(row)[i]) panelList.get(row).getComponent(i).setForeground(Color.WHITE);
                 else panelList.get(row).getComponent(i).setForeground(Color.DARK_GRAY);
             }
         }
@@ -71,52 +70,68 @@ public class Clock extends JFrame {
         lightByHour(hour);
         lightByMinute(minute);
         paintSecond(second);
-
-
+        paintSunMoon(hour);
+        //해와달 그리고 초
+        lightList.get(4)[3] = true;
+        lightList.get(8)[3] = true;
     }
 
-    public void paintSecond(int second){
+    public void paintSunMoon(int hour) {
+        JLabel jLabel = (JLabel) panelList.get(4).getComponent(3);
+        if (hour >= 7 && hour < 21) {
+            jLabel.setText("☀");
+            jLabel.setForeground(Color.RED);
+        } else {
+            jLabel.setText("\uD83C\uDF19");
+            jLabel.setForeground(Color.YELLOW);
+        }
+    }
+
+    public void paintSecond(int second) {
         JLabel jLabel = (JLabel) panelList.get(8).getComponent(3);
         jLabel.setText(String.valueOf(second));
         jLabel.setFont(new Font("고딕", Font.BOLD, 12));
     }
 
 
-    private void lightByMinute(int minute){
+    private void lightByMinute(int minute) {
         int minuteDivide = minute / 10;
         int minuteMod = minute % 10;
         //십을 키고 끄기
-        if (minuteDivide != 0) lightList.get(6)[0]=true;
+        if (minuteDivide != 0) lightList.get(6)[0] = true;
 
         switch (minuteDivide) {
-            case 0 -> {}
-            case 1 -> {}
+            case 0 -> {
+            }
+            case 1 -> {
+            }
             case 2 -> lightList.get(5)[0] = true;
             case 3 -> lightList.get(5)[1] = true;
             case 4 -> lightList.get(5)[2] = true;
             case 5 -> lightList.get(5)[3] = true;
             default -> System.out.println("오류 발생");
         }
-        if(minute!=0){
-            lightList.get(8)[2]=true;
+        if (minute != 0) {
+            lightList.get(8)[2] = true;
         }
 
-        switch (minuteMod){
-            case 0->{}
-            case 1->lightList.get(6)[1] = true;
-            case 2->lightList.get(6)[2] = true;
-            case 3->lightList.get(6)[3] = true;
-            case 4->lightList.get(7)[0] = true;
-            case 5->lightList.get(7)[1] = true;
-            case 6->lightList.get(7)[2] = true;
-            case 7->lightList.get(7)[3] = true;
-            case 8->lightList.get(8)[0] = true;
-            case 9->lightList.get(8)[1] = true;
+        switch (minuteMod) {
+            case 0 -> {
+            }
+            case 1 -> lightList.get(6)[1] = true;
+            case 2 -> lightList.get(6)[2] = true;
+            case 3 -> lightList.get(6)[3] = true;
+            case 4 -> lightList.get(7)[0] = true;
+            case 5 -> lightList.get(7)[1] = true;
+            case 6 -> lightList.get(7)[2] = true;
+            case 7 -> lightList.get(7)[3] = true;
+            case 8 -> lightList.get(8)[0] = true;
+            case 9 -> lightList.get(8)[1] = true;
             default -> System.out.println("오류 발생");
         }
     }
 
-    private void lightByHour(int hour){
+    private void lightByHour(int hour) {
         lightList.get(0)[0] = true;
         if (hour < 12) lightList.get(0)[1] = true;
         else {

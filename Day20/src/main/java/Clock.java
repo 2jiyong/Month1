@@ -5,9 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Clock extends JFrame {
-    private List<JPanel> panelList;
+    private List<JPanel> panelList = new ArrayList<>();
     private final List<String> wordList = new ArrayList<>(List.of
-            ("오전후영", "열한두세", "네다여섯", "일곱여덟", "아홉시달", "이삼사오", "심일이삼", "사오육칠", "팔구분초"));
+            ("오전후영", "열한두세", "네다여섯", "일곱여덟", "아홉시달", "이삼사오", "십일이삼", "사오육칠", "팔구분초"));
     private LocalTime localTime;
     private List<boolean[]> lightList;
 
@@ -18,6 +18,7 @@ public class Clock extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
+
         setLightList();
 
         JPanel mainPanel = new JPanel(new GridLayout(9, 1));
@@ -25,26 +26,36 @@ public class Clock extends JFrame {
 
         for (int row = 0; row < wordList.size(); row++) {
             JPanel rowPanel = new JPanel(new GridLayout(1, 4));
+            panelList.add(rowPanel);
             rowPanel.setBackground(Color.BLACK);
             for (int i = 0; i < 4; i++) {
                 JLabel word = new JLabel(wordList.get(row).substring(i, i + 1), SwingConstants.CENTER);
                 word.setFont(new Font("고딕", Font.BOLD, 48));
-                if (lightList.get(row)[i]) word.setForeground(Color.WHITE);
-                else word.setForeground(Color.DARK_GRAY);
                 rowPanel.add(word);
             }
             mainPanel.add(rowPanel);
         }
-
+        paintAgain();
         add(mainPanel, BorderLayout.CENTER);
     }
 
     public Runnable runClockFunction() {
         return () -> {
             localTime.plusSeconds(1);
+            setLightList();
+            paintAgain();
             this.revalidate();
             this.repaint();
         };
+    }
+
+    public void paintAgain(){
+        for(int row = 0 ; row<9;row++){
+            for(int i = 0 ; i<4;i++){
+                if(lightList.get(row)[i]) panelList.get(row).getComponent(i).setForeground(Color.WHITE);
+                else panelList.get(row).getComponent(i).setForeground(Color.DARK_GRAY);
+            }
+        }
     }
 
     public void setLightList() {
@@ -56,6 +67,47 @@ public class Clock extends JFrame {
         int minute = localTime.getMinute();
         int second = localTime.getSecond();
         // 오전 오후
+        lightByHour(hour);
+        lightByMinute(minute);
+
+    }
+
+
+    private void lightByMinute(int minute){
+        int minuteDivide = minute / 10;
+        int minuteMod = minute % 10;
+        //십을 키고 끄기
+        if (minuteDivide != 0) lightList.get(6)[0]=true;
+
+        switch (minuteDivide) {
+            case 0 -> {}
+            case 1 -> {}
+            case 2 -> lightList.get(5)[0] = true;
+            case 3 -> lightList.get(5)[1] = true;
+            case 4 -> lightList.get(5)[2] = true;
+            case 5 -> lightList.get(5)[3] = true;
+            default -> System.out.println("오류 발생");
+        }
+        if(minute!=0){
+            lightList.get(8)[2]=true;
+        }
+
+        switch (minuteMod){
+            case 0->{}
+            case 1->lightList.get(6)[1] = true;
+            case 2->lightList.get(6)[2] = true;
+            case 3->lightList.get(6)[3] = true;
+            case 4->lightList.get(7)[0] = true;
+            case 5->lightList.get(7)[1] = true;
+            case 6->lightList.get(7)[2] = true;
+            case 7->lightList.get(7)[3] = true;
+            case 8->lightList.get(8)[0] = true;
+            case 9->lightList.get(8)[1] = true;
+            default -> System.out.println("오류 발생");
+        }
+    }
+
+    private void lightByHour(int hour){
         lightList.get(0)[0] = true;
         if (hour < 12) lightList.get(0)[1] = true;
         else {
@@ -101,9 +153,5 @@ public class Clock extends JFrame {
             }
             default -> System.out.println("오류 발생");
         }
-        // 분
-        int minuteDivide = minute / 10;
-        int minuteMod = minute % 10;
-
     }
 }

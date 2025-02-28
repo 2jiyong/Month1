@@ -105,8 +105,9 @@ public class Clock extends JFrame {
 
         if (secondDivide!=0) sb.append("<br>");
 
+        if(second == 0) sb.append("영");
         switch (secondMod){
-            case 0 -> sb.append("영초");
+            case 0 -> sb.append("초");
             case 1 -> sb.append("일초");
             case 2 -> sb.append("이초");
             case 3 -> sb.append("삼초");

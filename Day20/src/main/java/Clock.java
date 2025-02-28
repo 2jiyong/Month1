@@ -88,9 +88,40 @@ public class Clock extends JFrame {
     }
 
     public void paintSecond(int second) {
+        int secondDivide = second/10;
+        int secondMod = second%10;
+
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("<html>");
+        switch (secondDivide){
+            case 0 -> {}
+            case 1 -> sb.append("십");
+            case 2 -> sb.append("이십");
+            case 3 -> sb.append("삼십");
+            case 4 -> sb.append("사십");
+            case 5 -> sb.append("오십");
+        }
+
+        if (secondDivide!=0) sb.append("<br>");
+
+        switch (secondMod){
+            case 0 -> sb.append("영초");
+            case 1 -> sb.append("일초");
+            case 2 -> sb.append("이초");
+            case 3 -> sb.append("삼초");
+            case 4 -> sb.append("사초");
+            case 5 -> sb.append("오초");
+            case 6 -> sb.append("육초");
+            case 7 -> sb.append("칠초");
+            case 8 -> sb.append("팔초");
+            case 9 -> sb.append("구초");
+        }
+        sb.append("</html>");
+
         JLabel jLabel = (JLabel) panelList.get(8).getComponent(3);
-        jLabel.setText(String.valueOf(second));
-        jLabel.setFont(new Font("고딕", Font.BOLD, 12));
+        jLabel.setText(sb.toString());
+        jLabel.setFont(new Font("고딕", Font.BOLD, 16));
     }
 
 
